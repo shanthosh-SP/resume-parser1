@@ -3,7 +3,7 @@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.1
 pyresparser==1.0.6
 importlib-metadata==3.2.0
 attrs==19.1.0
-blis==0.2.4
+blis>=0.2.4
 certifi==2019.6.16
 chardet==3.0.4
 cymem==2.0.2
