@@ -8,14 +8,14 @@ import en_core_web_sm
 import pandas as pd
 
 
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('universal_tagset')
-nltk.download('maxent_ne_chunker')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('brown')
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('universal_tagset')
+# nltk.download('maxent_ne_chunker')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('brown')
 #from resume_parser import resumeparse
 from pyresparser import ResumeParser
 
@@ -33,7 +33,7 @@ if st.button("Process"):
 
 	Skills_extraction=ResumeParser(filename).get_extracted_data()
 	
-	extract_for_YoE=ResumeParser(filename)
+	extract_for_YoE=ResumeParser(filename).get_extracted_data()
 	#st.write("Name of the Candidate: ",Skills_extraction['name'])
 #st.write("Skills----",Skills_extraction['skills'])
 	#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
