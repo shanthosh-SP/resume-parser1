@@ -16,7 +16,7 @@ import pandas as pd
 # nltk.download('stopwords')
 # nltk.download('wordnet')
 # nltk.download('brown')
-#from resume_parser import resumeparse
+from resume_parser import resumeparse
 from pyresparser import ResumeParser
 
 def file_selector(folder_path='Resumes'):
