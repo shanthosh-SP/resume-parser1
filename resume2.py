@@ -218,9 +218,12 @@ if st.button("Process"):
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-			repo = gh.repository("shanthosh-SP", "resume-parser1")
-			repo.create_file(folder_path, filename, page_contents)
-			st.write("Resume saved successfully.")
+			try:
+				repo = gh.repository("shanthosh-sp", "resume-parser1")
+				repo.create_file(folder_path, filename, page_contents)
+				st.write("Resume saved successfully.")
+			except github3.exceptions.NotFoundError as e:
+				print(f"Error: {e}")
 	
 	with st.form("myform"):
 		Submit = st.form_submit_button(label='Submit')
