@@ -7,6 +7,7 @@ import spacy
 import en_core_web_sm
 import pandas as pd
 from pathlib import Path
+import fitz
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
