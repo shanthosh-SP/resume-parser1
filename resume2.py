@@ -159,37 +159,29 @@ if st.button("Process"):
 	final(extract_for_YoE['total_exp'],b)
 	
 	if a<=2:
-		folder_path = "categories/fresher/"
-    
-    # Create a new file in the appropriate folder	
+		folder_path = "categories/fresher/"	
 		file_contents = uploaded_file.read()
 		file_name = uploaded_file.name
 		gh.create_file(folder_path, file_name, file_contents)
-    		st.write("Resume saved successfully.")
+		st.write("Resume saved successfully.")
 	if 2<a<=4:
-		folder_path = "categories/Intermediate/"
-    
-    # Create a new file in the appropriate folder	
+		folder_path = "categories/Intermediate/"	
 		file_contents = uploaded_file.read()
 		file_name = uploaded_file.name
 		gh.create_file(folder_path, file_name, file_contents)
-    		st.write("Resume saved successfully.")
+		st.write("Resume saved successfully.")
 	if 4<a<=10:
 		folder_path = "categories/Senior/"
-    
-    # Create a new file in the appropriate folder	
 		file_contents = uploaded_file.read()
 		file_name = uploaded_file.name
 		gh.create_file(folder_path, file_name, file_contents)
-    		st.write("Resume saved successfully.")
+		st.write("Resume saved successfully.")
 	if a<=11:
-		folder_path = "categories/Advanced/"
-    
-    # Create a new file in the appropriate folder	
+		folder_path = "categories/Advanced/"	
 		file_contents = uploaded_file.read()
 		file_name = uploaded_file.name
 		gh.create_file(folder_path, file_name, file_contents)
-    		st.write("Resume saved successfully.")
+		st.write("Resume saved successfully.")
 	
 	with st.form("myform"):
 		Submit = st.form_submit_button(label='Submit')
