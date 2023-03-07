@@ -167,7 +167,7 @@ if st.button("Process"):
 			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
 			page_obj = pdf_reader.load_page(page_num)
-        		page_contents = page_obj.get_text("text")
+			page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
@@ -182,7 +182,7 @@ if st.button("Process"):
 			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
 			page_obj = pdf_reader.load_page(page_num)
-        		page_contents = page_obj.get_text("text")
+			page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
@@ -198,7 +198,7 @@ if st.button("Process"):
 			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
 			page_obj = pdf_reader.load_page(page_num)
-        		page_contents = page_obj.get_text("text")
+			page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
@@ -213,7 +213,7 @@ if st.button("Process"):
 			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
 			page_obj = pdf_reader.load_page(page_num)
-        		page_contents = page_obj.get_text("text")
+			page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
