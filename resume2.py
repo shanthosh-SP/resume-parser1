@@ -8,14 +8,14 @@ import en_core_web_sm
 import pandas as pd
 
 
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('universal_tagset')
-nltk.download('maxent_ne_chunker')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('brown')
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('universal_tagset')
+# nltk.download('maxent_ne_chunker')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 
@@ -160,32 +160,32 @@ if st.button("Process"):
         
 	
 	if Submit :
-    		st.markdown("**The file is sucessfully Uploaded.**")
+		st.markdown("**The file is sucessfully Uploaded.**")
 		if a<=2:
 			save_folder = 'Categories/Fresher'
 			save_path = Path(save_folder, selected_filename.name)
-		with open(save_path, mode='wb') as w:
-			w.write(File.getvalue())
-		if save_path.exists():
-        		st.success(f'File {selected_filename.name} is successfully saved!')
+			with open(save_path, mode='wb') as w:
+				w.write(File.getvalue())
+			if save_path.exists():
+        			st.success(f'File {selected_filename.name} is successfully saved!')
 		if 2<a<4:
 			save_folder = 'Categories/Intermediate'
 			save_path = Path(save_folder, selected_filename.name)
-		with open(save_path, mode='wb') as w:
-			w.write(selected_filename.getvalue())
-		if save_path.exists():
-        		st.success(f'File {File.name} is successfully saved!')
+			with open(save_path, mode='wb') as w:
+				w.write(selected_filename.getvalue())
+			if save_path.exists():
+        			st.success(f'File {File.name} is successfully saved!')
 		if 4<a<=10:
 			save_folder = 'Categories/Senior'
 			save_path = Path(save_folder, selected_filename.name)
-		with open(save_path, mode='wb') as w:
-			w.write(selected_filename.getvalue())
-		if save_path.exists():
-        		st.success(f'File {selected_filename.name} is successfully saved!')
+			with open(save_path, mode='wb') as w:
+				w.write(selected_filename.getvalue())
+			if save_path.exists():
+        			st.success(f'File {selected_filename.name} is successfully saved!')
 		if a>=11:
 			save_folder = 'Categories/Advanced'
 			save_path = Path(save_folder, selected_filename.name)
-		with open(save_path, mode='wb') as w:
-			w.write(selected_filename.getvalue())
-		if save_path.exists():
-        		st.success(f'File {selected_filename.name} is successfully saved!')
+			with open(save_path, mode='wb') as w:
+				w.write(selected_filename.getvalue())
+			if save_path.exists():
+        			st.success(f'File {selected_filename.name} is successfully saved!')
