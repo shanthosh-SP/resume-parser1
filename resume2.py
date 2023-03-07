@@ -20,8 +20,10 @@ from resume_parser import resumeparse
 from pyresparser import ResumeParser
 
 def file_selector(folder_path='Resumes'):
-	filename=os.listdir(folder_path)
-	selected_filename=st.selectbox('select a file',filename)
+	st.title("File Uploader")
+	uploaded_file = st.file_uploader("Choose a file", type=['txt', 'pdf', 'csv', 'xlsx','docx'])
+	#filename=os.listdir(folder_path)
+	#selected_filename=st.selectbox('select a file',filename)
 	return os.path.join(folder_path,selected_filename)
 filename=file_selector()
 
