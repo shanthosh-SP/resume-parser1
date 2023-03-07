@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import pandas as pd
 import github3
-pip install PyMuPDF
+!pip install PyMuPDF
 !pip uninstall fitz
 
 pip uninstall fitz
