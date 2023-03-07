@@ -40,9 +40,9 @@ if st.button("Process"):
 
 	Skills_extracted=Skills_extraction['skills']
 	
-	st.write(extract_for_YoE)
-	st.write('=====')
-	st.write(Skills_extraction)
+	#st.write(extract_for_YoE)
+	#st.write('=====')
+	#st.write(Skills_extraction)
 	skills_reqd_DS=['machine learning','data mining','predictive modeling', 'statistical analysis', 'data visualization', 'natural language processing', 'big data', 'data warehousing', 'sql', 'python/r programming', 'deep learning', 'artificial intelligence', 'data analytics', 'a/b testing', 'feature engineering', 'etl processes', 'time series analysis', 'regression analysis', 'cluster analysis', 'decision trees','power bi']
 	skills_reqd_HR=['ats','applicant tracking systems','job postings', 'sourcing','source' ,'interviewing skills', 'hiring process', 'job descriptions', 'talent acquisition', 'diversity and inclusion', 'background checks', 'onboarding','hr consulting' ,'recruiting','recruiter','shortlisting','interviewing','end to end recruitment','deadline','reporting','hire','walk-in drives','phone interviewing',' candidate management systems','decisionmaking','management','psychology','monitoring''cms','screening resumes','lateral']
 	skills_reqd_sales=['sales', 'account management', 'client relationship management', 'sales forecasting', 'sales strategy', 'sales negotiations', 'pipeline management', 'territory management', 'customer acquisition', 'sales performance', 'sales reporting','website sales','cilents','metrics','inside sales','strategic content development','presales executives','cold calling','executive',' marketing','business development','crm','market research', 'website sales', 'inside sales','negotiations','customer service']
@@ -61,7 +61,7 @@ if st.button("Process"):
 			res['skills_reqd_HR'].append(str(i))
 		if i in skills_reqd_sales:
 			res['skills_reqd_sales'].append(str(i))
-	st.write(res)
+	#st.write(res)
    
 
 	HR=0
@@ -161,25 +161,28 @@ if st.button("Process"):
 	if Submit :
 		st.markdown("**The file is sucessfully Uploaded.**")
 		if a<=2:
-			save_folder = 'Categories/Fresher'
-			save_path = Path(save_folder, selected_filename.name)
-			with open(save_path, mode='wb') as w:
-				w.write(File.getvalue())
-			if save_path.exists():
+			folder_path = 'Categories/Fresher'
+			fil=os.listdir(folder_path)
+			save_path = Path(folder_path, selected_filename.name)
+			with open(fil, mode='wb') as w:
+				w.write(selected_file.getvalue())
+			if fil.exists():
         			st.success(f'File {selected_filename.name} is successfully saved!')
 		if 2<a<4:
-			save_folder = 'Categories/Intermediate'
-			save_path = Path(save_folder, selected_filename.name)
-			with open(save_path, mode='wb') as w:
+			folder_path = 'Categories/Fresher'
+			fil=os.listdir(folder_path)
+			save_path = Path(folder_path, selected_filename.name)
+			with open(fil, mode='wb') as w:
 				w.write(selected_filename.getvalue())
-			if save_path.exists():
+			if fil.exists():
         			st.success(f'File {File.name} is successfully saved!')
 		if 4<a<=10:
-			save_folder = 'Categories/Senior'
-			save_path = Path(save_folder, selected_filename.name)
-			with open(save_path, mode='wb') as w:
+			folder_path = 'Categories/Fresher'
+			fil=os.listdir(folder_path)
+			save_path = Path(folder_path, selected_filename.name)
+			with open(fil, mode='wb') as w:
 				w.write(selected_filename.getvalue())
-			if save_path.exists():
+			if fil.exists():
         			st.success(f'File {selected_filename.name} is successfully saved!')
 		if a>=11:
 			save_folder = 'Categories/Advanced'
