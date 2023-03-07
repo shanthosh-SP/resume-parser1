@@ -155,7 +155,8 @@ if st.button("Process"):
 		
 	final(extract_for_YoE['total_exp'],b)
 	
-	Submit = st.form_submit_button(label='Submit')
+	with st.form("myform"):
+		Submit = st.form_submit_button(label='Submit')
 
 	
 	if Submit :
