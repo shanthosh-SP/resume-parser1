@@ -2,7 +2,10 @@ import streamlit as st
 import os
 import pandas as pd
 import github3
+pip install PyMuPDF
+!pip uninstall fitz
 
+pip uninstall fitz
 import nltk
 import spacy
 import en_core_web_sm
@@ -160,7 +163,6 @@ if st.button("Process"):
 	
 	
 	if a<=2:
-		import fitz
 		with open(filename, 'rb') as f:
 			pdf_data = f.read()
 			pdf_reader = fitz.open("pdf", pdf_data)
@@ -175,7 +177,6 @@ if st.button("Process"):
 			repo.create_file(folder_path, filename, page_contents)
 			st.write("Resume saved successfully.")
 	if 2<a<=4:
-		import fitz
 		with open(filename, 'rb') as f:
 			pdf_data = f.read()
 			pdf_reader = fitz.open("pdf", pdf_data)
@@ -191,7 +192,7 @@ if st.button("Process"):
 			st.write("Resume saved successfully.")
 
 	if 4<a<=10:
-		import fitz
+		
 		with open(filename, 'rb') as f:
 			pdf_data = f.read()
 			pdf_reader = fitz.open("pdf", pdf_data)
@@ -206,7 +207,7 @@ if st.button("Process"):
 			repo.create_file(folder_path, filename, page_contents)
 			st.write("Resume saved successfully.")
 	if a<=11:
-		import fitz
+		
 		with open(filename, 'rb') as f:
 			pdf_data = f.read()
 			pdf_reader = fitz.open("pdf", pdf_data)
