@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import pandas as pd
+import github3
 
 import nltk
 import spacy
@@ -17,6 +18,8 @@ from pathlib import Path
 # nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
+
+gh = github3.login(username="shanthosh-SP", password="Sandy$$$12345")
 
 def file_selector(folder_path='Resumes'):
 	st.title("File Uploader")
@@ -154,6 +157,39 @@ if st.button("Process"):
 
 		
 	final(extract_for_YoE['total_exp'],b)
+	
+	if a<=2:
+		folder_path = "categories/fresher/"
+    
+    # Create a new file in the appropriate folder	
+		file_contents = uploaded_file.read()
+		file_name = uploaded_file.name
+		gh.create_file(folder_path, file_name, file_contents)
+    		st.write("Resume saved successfully.")
+	if 2<a<=4:
+		folder_path = "categories/Intermediate/"
+    
+    # Create a new file in the appropriate folder	
+		file_contents = uploaded_file.read()
+		file_name = uploaded_file.name
+		gh.create_file(folder_path, file_name, file_contents)
+    		st.write("Resume saved successfully.")
+	if 4<a<=10:
+		folder_path = "categories/Senior/"
+    
+    # Create a new file in the appropriate folder	
+		file_contents = uploaded_file.read()
+		file_name = uploaded_file.name
+		gh.create_file(folder_path, file_name, file_contents)
+    		st.write("Resume saved successfully.")
+	if a<=11:
+		folder_path = "categories/Advanced/"
+    
+    # Create a new file in the appropriate folder	
+		file_contents = uploaded_file.read()
+		file_name = uploaded_file.name
+		gh.create_file(folder_path, file_name, file_contents)
+    		st.write("Resume saved successfully.")
 	
 	with st.form("myform"):
 		Submit = st.form_submit_button(label='Submit')
