@@ -160,13 +160,14 @@ if st.button("Process"):
 	
 	
 	if a<=2:
-		import PyPDF2
+		import fitz
 		with open(filename, 'rb') as f:
-			pdf_reader = PyPDF2.PdfFileReader(f)
-			num_pages = pdf_reader.getNumPages()
+			pdf_data = f.read()
+			pdf_reader = fitz.open("pdf", pdf_data)
+			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
-			page_obj = pdf_reader.getPage(page_num)
-			page_contents = page_obj.extractText()
+			page_obj = pdf_reader.load_page(page_num)
+        		page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
@@ -174,13 +175,14 @@ if st.button("Process"):
 			repo.create_file(folder_path, filename, page_contents)
 			st.write("Resume saved successfully.")
 	if 2<a<=4:
-		import PyPDF2
+		import fitz
 		with open(filename, 'rb') as f:
-			pdf_reader = PyPDF2.PdfFileReader(f)
-			num_pages = pdf_reader.getNumPages()
+			pdf_data = f.read()
+			pdf_reader = fitz.open("pdf", pdf_data)
+			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
-			page_obj = pdf_reader.getPage(page_num)
-			page_contents = page_obj.extractText()
+			page_obj = pdf_reader.load_page(page_num)
+        		page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
@@ -189,13 +191,14 @@ if st.button("Process"):
 			st.write("Resume saved successfully.")
 
 	if 4<a<=10:
-		import PyPDF2
+		import fitz
 		with open(filename, 'rb') as f:
-			pdf_reader = PyPDF2.PdfFileReader(f)
-			num_pages = pdf_reader.getNumPages()
+			pdf_data = f.read()
+			pdf_reader = fitz.open("pdf", pdf_data)
+			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
-			page_obj = pdf_reader.getPage(page_num)
-			page_contents = page_obj.extractText()
+			page_obj = pdf_reader.load_page(page_num)
+        		page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
@@ -203,13 +206,14 @@ if st.button("Process"):
 			repo.create_file(folder_path, filename, page_contents)
 			st.write("Resume saved successfully.")
 	if a<=11:
-		import PyPDF2
+		import fitz
 		with open(filename, 'rb') as f:
-			pdf_reader = PyPDF2.PdfFileReader(f)
-			num_pages = pdf_reader.getNumPages()
+			pdf_data = f.read()
+			pdf_reader = fitz.open("pdf", pdf_data)
+			num_pages = pdf_reader.page_count
 		for page_num in range(num_pages):
-			page_obj = pdf_reader.getPage(page_num)
-			page_contents = page_obj.extractText()
+			page_obj = pdf_reader.load_page(page_num)
+        		page_contents = page_obj.get_text("text")
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
