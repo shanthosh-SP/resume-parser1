@@ -161,7 +161,6 @@ if st.button("Process"):
 	
 	if Submit :
     		st.markdown("**The file is sucessfully Uploaded.**")
-    # Save uploaded file to 'F:/tmp' folder.
 		if a<=2:
 			save_folder = 'Categories/Fresher'
 			save_path = Path(save_folder, selected_filename.name)
