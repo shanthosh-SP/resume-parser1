@@ -158,6 +158,25 @@ if st.button("Process"):
 		
 	final(extract_for_YoE['total_exp'],b)
 	
+	from github import Github
+
+# Initialize a PyGithub instance
+	g = Github("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")
+
+# Get the repository
+	repo = g.get_repo("shanthosh-sp/resume-parser1")
+	if 2<a<=4:
+		file_path = "Categories/Intermediate"
+		file_name = filename
+		with open(filename, 'rb') as f:
+			pdf_data = f.read()
+			pdf_reader = fitz.open("pdf", pdf_data)
+			num_pages = pdf_reader.page_count
+		for page_num in range(num_pages):
+			page_obj = pdf_reader.load_page(page_num)
+			page_contents = page_obj.get_text("text").encode('utf-8')
+			repo.create_file(f"{file_path}/{file_name}",f"Added {file_name}",file_content,branch="main")
+	
 	
 	if a<=2:
 		with open(filename, 'rb') as f:
