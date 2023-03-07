@@ -155,9 +155,9 @@ if st.button("Process"):
 		
 	final(extract_for_YoE['total_exp'],b)
 	
-with st.form("myform"):
-	Submit = st.form_submit_button(label='Submit')
-	st.markdown("**The file is sucessfully Uploaded.**")
+	with st.form("myform"):
+		Submit = st.form_submit_button(label='Submit')
+		st.markdown("**The file is sucessfully Uploaded.**")
 	
 	if Submit:
 		st.markdown("**The file is sucessfully Uploaded.**")
