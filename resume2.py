@@ -223,7 +223,7 @@ if st.button("Process"):
 				repo.create_file(folder_path, filename, page_contents)
 				st.write("Resume saved successfully.")
 			except github3.exceptions.NotFoundError as e:
-				st,write(f"Error: {e}")
+				st.write(f"Error: {e}")
 	
 	with st.form("myform"):
 		Submit = st.form_submit_button(label='Submit')
