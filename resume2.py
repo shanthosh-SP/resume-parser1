@@ -184,7 +184,7 @@ if st.button("Process"):
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-			repo = gh.repository("shanthosh", "resume-parser1")
+			repo = gh.repository("shanthosh-sp", "resume-parser1")
 			repo.create_file(folder_path, filename, page_contents)
 			st.write("Resume saved successfully.")
 
