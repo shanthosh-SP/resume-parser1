@@ -6,3 +6,4 @@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.1
 pyresparser==1.0.6
 importlib-metadata==3.2.0
 github3.py==3.2.0
+PyPDF2==3.0.1
