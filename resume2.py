@@ -19,7 +19,7 @@ import fitz
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 
-gh = github3.login(username="shanthosh-SP", password="Sandy$$$12345")
+gh = github3.login(username="shanthosh", password="Sandy$$$12345")
 
 def file_selector(folder_path='Resumes'):
 	st.title("File Uploader")
@@ -170,7 +170,7 @@ if st.button("Process"):
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-			repo = gh.repository("shanthosh-SP", "resume-parser1")
+			repo = gh.repository("shanthosh", "resume-parser1")
 			repo.create_file(folder_path, filename, page_contents)
 			st.write("Resume saved successfully.")
 	if 2<a<=4:
@@ -184,7 +184,7 @@ if st.button("Process"):
 			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-			repo = gh.repository("shanthosh-SP", "resume-parser1")
+			repo = gh.repository("shanthosh", "resume-parser1")
 			repo.create_file(folder_path, filename, page_contents)
 			st.write("Resume saved successfully.")
 
