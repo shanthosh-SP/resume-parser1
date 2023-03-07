@@ -21,9 +21,8 @@ from pyresparser import ResumeParser
 
 def file_selector(folder_path='Resumes'):
 	st.title("File Uploader")
-	uploaded_file = st.file_uploader("Choose a file", type=['txt', 'pdf', 'csv', 'xlsx','docx'])
-	#filename=os.listdir(folder_path)
-	#selected_filename=st.selectbox('select a file',filename)
+	filename=os.listdir(folder_path)
+	selected_filename=st.selectbox('select a file',filename)
 	return os.path.join(folder_path,selected_filename)
 filename=file_selector()
 
@@ -156,4 +155,38 @@ if st.button("Process"):
 
 		
 	final(extract_for_YoE['total_exp'],b)
+	with st.form(key="Form :", clear_on_submit = True):
+		Submit = st.form_submit_button(label='Submit')
         
+	
+	if Submit :
+    		st.markdown("**The file is sucessfully Uploaded.**")
+    # Save uploaded file to 'F:/tmp' folder.
+		if a<=2:
+			save_folder = 'Categories/Fresher'
+			save_path = Path(save_folder, selected_filename.name)
+		with open(save_path, mode='wb') as w:
+			w.write(File.getvalue())
+		if save_path.exists():
+        		st.success(f'File {selected_filename.name} is successfully saved!')
+		if 2<a<4:
+			save_folder = 'Categories/Intermediate'
+			save_path = Path(save_folder, selected_filename.name)
+		with open(save_path, mode='wb') as w:
+			w.write(selected_filename.getvalue())
+		if save_path.exists():
+        		st.success(f'File {File.name} is successfully saved!')
+		if 4<a<=10:
+			save_folder = 'Categories/Senior'
+			save_path = Path(save_folder, selected_filename.name)
+		with open(save_path, mode='wb') as w:
+			w.write(selected_filename.getvalue())
+		if save_path.exists():
+        		st.success(f'File {selected_filename.name} is successfully saved!')
+		if a>=11:
+			save_folder = 'Categories/Advanced'
+			save_path = Path(save_folder, selected_filename.name)
+		with open(save_path, mode='wb') as w:
+			w.write(selected_filename.getvalue())
+		if save_path.exists():
+        		st.success(f'File {selected_filename.name} is successfully saved!')
