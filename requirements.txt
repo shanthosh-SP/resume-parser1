@@ -9,3 +9,4 @@ github3.py==3.2.0
 PyPDF2==3.0.1
 PyMuPDF==1.21.1
 github==1.2.7
+PyGithub==1.58.0
