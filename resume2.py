@@ -162,25 +162,29 @@ if st.button("Process"):
 		folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-		gh.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
+		repo = gh.repository("shanthosh-SP", "resume-parser1")
+		repo.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
 		st.write("Resume saved successfully.")
 	if 2<a<=4:
 		folder_path = "categories/Intermediate/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-		gh.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
+		repo = gh.repository("shanthosh-SP", "resume-parser1")
+		repo.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
 		st.write("Resume saved successfully.")
 	if 4<a<=10:
 		folder_path = "categories/Senior/"
 		#file_contents = file_selector.read()
 		#file_name = uploaded_file.name
-		gh.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
+		repo = gh.repository("shanthosh-SP", "resume-parser1")
+		repo.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
 		st.write("Resume saved successfully.")
 	if a<=11:
 		folder_path = "categories/Advanced/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-		gh.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
+		repo = gh.repository("shanthosh-SP", "resume-parser1")
+		repo.create_file(folder_path, selected_filename, ResumeParser(filename).get_extracted_data())
 		st.write("Resume saved successfully.")
 	
 	with st.form("myform"):
