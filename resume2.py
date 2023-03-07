@@ -6,8 +6,7 @@ import nltk
 import spacy
 import en_core_web_sm
 import pandas as pd
-
-
+from pathlib import Path
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
@@ -157,8 +156,7 @@ if st.button("Process"):
 	final(extract_for_YoE['total_exp'],b)
 	with st.form(key="Form :", clear_on_submit = True):
 		Submit = st.form_submit_button(label='Submit')
-from pathlib import Path
-        
+
 	
 	if Submit :
 		st.markdown("**The file is sucessfully Uploaded.**")
