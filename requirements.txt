@@ -8,4 +8,3 @@ importlib-metadata==3.2.0
 github3.py==3.2.0
 PyPDF2==3.0.1
 PyMuPDF==1.21.1
-fitz==0.0.1.dev2
