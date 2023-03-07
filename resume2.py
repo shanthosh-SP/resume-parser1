@@ -158,34 +158,64 @@ if st.button("Process"):
 		
 	final(extract_for_YoE['total_exp'],b)
 	
+	
 	if a<=2:
-		folder_path = "categories/fresher/"	
+		import PyPDF2
+		with open(filename, 'rb') as f:
+			pdf_reader = PyPDF2.PdfFileReader(f)
+			num_pages = pdf_reader.getNumPages()
+		for page_num in range(num_pages):
+			page_obj = pdf_reader.getPage(page_num)
+			page_contents = page_obj.extractText()
+			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-		repo = gh.repository("shanthosh-SP", "resume-parser1")
-		repo.create_file(folder_path, filename, ResumeParser(filename).get_extracted_data())
-		st.write("Resume saved successfully.")
+			repo = gh.repository("shanthosh-SP", "resume-parser1")
+			repo.create_file(folder_path, filename, page_contents)
+			st.write("Resume saved successfully.")
 	if 2<a<=4:
-		folder_path = "categories/Intermediate/"	
+		import PyPDF2
+		with open(filename, 'rb') as f:
+			pdf_reader = PyPDF2.PdfFileReader(f)
+			num_pages = pdf_reader.getNumPages()
+		for page_num in range(num_pages):
+			page_obj = pdf_reader.getPage(page_num)
+			page_contents = page_obj.extractText()
+			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-		repo = gh.repository("shanthosh-SP", "resume-parser1")
-		repo.create_file(folder_path,filename, ResumeParser(filename).get_extracted_data())
-		st.write("Resume saved successfully.")
+			repo = gh.repository("shanthosh-SP", "resume-parser1")
+			repo.create_file(folder_path, filename, page_contents)
+			st.write("Resume saved successfully.")
+
 	if 4<a<=10:
-		folder_path = "categories/Senior/"
-		#file_contents = file_selector.read()
-		#file_name = uploaded_file.name
-		repo = gh.repository("shanthosh-SP", "resume-parser1")
-		repo.create_file(folder_path, filename, ResumeParser(filename).get_extracted_data())
-		st.write("Resume saved successfully.")
-	if a<=11:
-		folder_path = "categories/Advanced/"	
+		import PyPDF2
+		with open(filename, 'rb') as f:
+			pdf_reader = PyPDF2.PdfFileReader(f)
+			num_pages = pdf_reader.getNumPages()
+		for page_num in range(num_pages):
+			page_obj = pdf_reader.getPage(page_num)
+			page_contents = page_obj.extractText()
+			folder_path = "categories/fresher/"	
 		#file_contents = file_selector.read()
 		#file_name = file_selector.name
-		repo = gh.repository("shanthosh-SP", "resume-parser1")
-		repo.create_file(folder_path, filename, ResumeParser(filename).get_extracted_data())
-		st.write("Resume saved successfully.")
+			repo = gh.repository("shanthosh-SP", "resume-parser1")
+			repo.create_file(folder_path, filename, page_contents)
+			st.write("Resume saved successfully.")
+	if a<=11:
+		import PyPDF2
+		with open(filename, 'rb') as f:
+			pdf_reader = PyPDF2.PdfFileReader(f)
+			num_pages = pdf_reader.getNumPages()
+		for page_num in range(num_pages):
+			page_obj = pdf_reader.getPage(page_num)
+			page_contents = page_obj.extractText()
+			folder_path = "categories/fresher/"	
+		#file_contents = file_selector.read()
+		#file_name = file_selector.name
+			repo = gh.repository("shanthosh-SP", "resume-parser1")
+			repo.create_file(folder_path, filename, page_contents)
+			st.write("Resume saved successfully.")
 	
 	with st.form("myform"):
 		Submit = st.form_submit_button(label='Submit')
