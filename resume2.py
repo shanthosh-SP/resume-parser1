@@ -33,6 +33,13 @@ filename=file_selector()
 if st.button("Process"):
 	
 	st.write("You selected `%s` " %filename)
+	import docx 
+	doc = docx.Document(filename) 
+	job_description = ''
+	for para in doc.paragraphs:
+		x=para.text+' '
+		job_description += x 
+		print(job_description)
 	
 
 
@@ -42,6 +49,16 @@ if st.button("Process"):
 	#st.write("Name of the Candidate: ",Skills_extraction['name'])
 #st.write("Skills----",Skills_extraction['skills'])
 	#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
+	import re
+	if extract_for_YoE['total_exp']==0
+		try:
+			years_of_experience = re.findall(r'\d+\+?\s+years', job_description)
+			if len(years_of_experience)>0:
+				extract_for_YoE['total_exp']=int(years_of_experience[0].split()[0].replace('+',''))
+		except:
+			years_of_experience = re.findall(r'\d\s*years', job_description)
+			if len(years_of_experience)>0:
+				extract_for_YoE['total_exp']=int(years_of_experience[0].split()[0])
 
 	Skills_extracted=Skills_extraction['skills']
 	
@@ -162,124 +179,3 @@ if st.button("Process"):
 	
 	
 
-# Initialize a PyGithub instance
-	g = Github("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")
-
-# Get the repository
-	repo = g.get_repo("shanthosh-sp/resume-parser1")
-	if 2<a<=4:
-		file_path = "Categories/Intermediate"
-		file_name = filename
-		with open(filename, 'rb') as f:
-			pdf_data = f.read()
-			pdf_reader = fitz.open("pdf", pdf_data)
-			num_pages = pdf_reader.page_count
-		for page_num in range(num_pages):
-			page_obj = pdf_reader.load_page(page_num)
-			page_contents = page_obj.get_text("text").encode('utf-8')
-			repo.create_file(f"{file_path}/{file_name}",f"Added {file_name}",file_content,branch="main")
-	
-	
-	if a<=2:
-		with open(filename, 'rb') as f:
-			pdf_data = f.read()
-			pdf_reader = fitz.open("pdf", pdf_data)
-			num_pages = pdf_reader.page_count
-		for page_num in range(num_pages):
-			page_obj = pdf_reader.load_page(page_num)
-			page_contents = page_obj.get_text("text").encode('utf-8')
-			folder_path = "categories/fresher/"	
-		#file_contents = file_selector.read()
-		#file_name = file_selector.name
-			repo = gh.repository("shanthosh", "resume-parser1")
-			repo.create_file(folder_path, filename, page_contents)
-			st.write("Resume saved successfully.")
-	if 2<a<=4:
-		with open(filename, 'rb') as f:
-			pdf_data = f.read()
-			pdf_reader = fitz.open("pdf", pdf_data)
-			num_pages = pdf_reader.page_count
-		for page_num in range(num_pages):
-			page_obj = pdf_reader.load_page(page_num)
-			page_contents = page_obj.get_text("text").encode('utf-8')
-			folder_path = "categories/fresher/"	
-		#file_contents = file_selector.read()
-		#file_name = file_selector.name
-			try:
-				repo = gh.repository("shanthosh-sp", "resume-parser1")
-				repo.create_file(folder_path, filename, page_contents)
-				st.write("Resume saved successfully.")
-			except github3.exceptions.NotFoundError as e:
-				st.write(f"Error: {e}")
-
-	if 4<a<=10:
-		
-		with open(filename, 'rb') as f:
-			pdf_data = f.read()
-			pdf_reader = fitz.open("pdf", pdf_data)
-			num_pages = pdf_reader.page_count
-		for page_num in range(num_pages):
-			page_obj = pdf_reader.load_page(page_num)
-			page_contents = page_obj.get_text("text").encode('utf-8')
-			folder_path = "categories/fresher/"	
-		#file_contents = file_selector.read()
-		#file_name = file_selector.name
-			repo = gh.repository("shanthosh-SP", "resume-parser1")
-			repo.create_file(folder_path, filename, page_contents)
-			st.write("Resume saved successfully.")
-	if a<=11:
-		
-		with open(filename, 'rb') as f:
-			pdf_data = f.read()
-			pdf_reader = fitz.open("pdf", pdf_data)
-			num_pages = pdf_reader.page_count
-		for page_num in range(num_pages):
-			page_obj = pdf_reader.load_page(page_num)
-			page_contents = page_obj.get_text("text").encode('utf-8')
-			folder_path = "categories/fresher/"	
-		#file_contents = file_selector.read()
-		#file_name = file_selector.name
-			try:
-				repo = gh.repository("shanthosh-sp", "resume-parser1")
-				repo.create_file(folder_path, filename, page_contents)
-				st.write("Resume saved successfully.")
-			except github3.exceptions.NotFoundError as e:
-				st.write(f"Error: {e}")
-	
-	with st.form("myform"):
-		Submit = st.form_submit_button(label='Submit')
-		st.markdown("**The file is sucessfully Uploaded.**")
-	
-	if Submit:
-		st.markdown("**The file is sucessfully Uploaded.**")
-		if a<=2:
-			folder_path = 'Categories/Fresher'
-			fil=os.listdir(folder_path)
-			save_path = Path(folder_path, selected_filename.name)
-			with open(fil, mode='wb') as w:
-				w.write(selected_file.getvalue())
-			if fil.exists():
-        			st.success(f'File {selected_filename.name} is successfully saved!')
-		if 2<a<4:
-			folder_path = 'Categories/Fresher'
-			fil=os.listdir(folder_path)
-			save_path = Path(folder_path, selected_filename.name)
-			with open(fil, mode='wb') as w:
-				w.write(selected_filename.getvalue())
-			if fil.exists():
-        			st.success(f'File {File.name} is successfully saved!')
-		if 4<a<=10:
-			folder_path = 'Categories/Fresher'
-			fil=os.listdir(folder_path)
-			save_path = Path(folder_path, selected_filename.name)
-			with open(fil, mode='wb') as w:
-				w.write(selected_filename.getvalue())
-			if fil.exists():
-        			st.success(f'File {selected_filename.name} is successfully saved!')
-		if a>=11:
-			save_folder = 'Categories/Advanced'
-			save_path = Path(save_folder, selected_filename.name)
-			with open(save_path, mode='wb') as w:
-				w.write(selected_filename.getvalue())
-			if save_path.exists():
-        			st.success(f'File {selected_filename.name} is successfully saved!')
