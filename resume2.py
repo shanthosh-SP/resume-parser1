@@ -50,15 +50,17 @@ if st.button("Process"):
 	st.write(type(extract_for_YoE))
 	exp=extract_for_YoE["total_exp"]
 	st.write(extract_for_YoE["total_exp"])
-	if exp=0
-		try:
-			years_of_experience = re.findall(r'\d+\+?\s+years', job_description)
-			if len(years_of_experience)>0:
-				exp=int(years_of_experience[0].split()[0].replace('+',''))
-		except:
-			years_of_experience = re.findall(r'\d\s*years', job_description)
-			if len(years_of_experience)>0:
-				exp=int(years_of_experience[0].split()[0])
+	st.write(exp)
+	st.write(type(exp))
+# 	if exp=0
+# 		try:
+# 			years_of_experience = re.findall(r'\d+\+?\s+years', job_description)
+# 			if len(years_of_experience)>0:
+# 				exp=int(years_of_experience[0].split()[0].replace('+',''))
+# 		except:
+# 			years_of_experience = re.findall(r'\d\s*years', job_description)
+# 			if len(years_of_experience)>0:
+# 				exp=int(years_of_experience[0].split()[0])
 	
 	st.write(extract_for_YoE['total_exp'])
 
