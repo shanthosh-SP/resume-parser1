@@ -8,6 +8,7 @@ import en_core_web_sm
 import pandas as pd
 from pathlib import Path
 import fitz
+from github import Github
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
@@ -158,7 +159,7 @@ if st.button("Process"):
 		
 	final(extract_for_YoE['total_exp'],b)
 	
-	from github import Github
+	
 
 # Initialize a PyGithub instance
 	g = Github("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")
