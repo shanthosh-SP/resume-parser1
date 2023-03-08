@@ -52,7 +52,7 @@ if st.button("Process"):
 	st.write(extract_for_YoE["total_exp"])
 	st.write(exp)
 	st.write(type(exp))
-	job_description=""
+	
 	if exp==0:
 		try:
 			years_of_experience = re.findall(r'\d+\+?\s+years', job_description)
@@ -126,61 +126,61 @@ if st.button("Process"):
 	a=extract_for_YoE['total_exp']
 
 	st.write(a,b)
-
-	def final(a,b):
-		
-		if a<=2 and b=="DataScientist":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "0-2")]
-			st.write(color_and_shape)
-
-
-		if 2<a<=4 and b=="DataScientist":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "2-4")]
-			st.write(color_and_shape)
-			
-
-		if 4< a<=10 and b=="DataScientist":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "5-10")]
-			st.write(color_and_shape)
-		if a>=11 and b=="DataScientist":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "10+")]
-			st.write(color_and_shape)
-					
-		if a<=2 and b=="HR":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "0-2")]
-			st.write(color_and_shape)
-			
-
-		if 2<a<=4 and b=="HR":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "3-4")]
-			st.write(color_and_shape)
-			
-
-		if 4<a<=10 and b=="HR":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "5-10")]
-			st.write(color_and_shape)
-	
-		if a>=11 and b=="HR":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "10+")]
-			st.write(color_and_shape)
-		if a<=2 and b=="Sales":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "0-2")]
-			st.write(color_and_shape)
-		if 2<a <=4 and b=="Sales":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "3-4")]
-			st.write(color_and_shape)
-
-		if 4<a <=10 and b=="Sales":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "5-10")]
-			st.write(color_and_shape)
-
-
-		if a>=11 and b=="Sales":
-			color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "10+")]
-			st.write(color_and_shape)
-
-		
 	final(extract_for_YoE['total_exp'],b)
-	
-	
+def final(a,b):
+
+	if a<=2 and b=="DataScientist":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "0-2")]
+		st.write(color_and_shape)
+
+
+	if 2<a<=4 and b=="DataScientist":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "2-4")]
+		st.write(color_and_shape)
+
+
+	if 4< a<=10 and b=="DataScientist":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "5-10")]
+		st.write(color_and_shape)
+	if a>=11 and b=="DataScientist":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "DataScientist") & (sal_data['YoE'] == "10+")]
+		st.write(color_and_shape)
+
+	if a<=2 and b=="HR":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "0-2")]
+		st.write(color_and_shape)
+
+
+	if 2<a<=4 and b=="HR":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "3-4")]
+		st.write(color_and_shape)
+
+
+	if 4<a<=10 and b=="HR":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "5-10")]
+		st.write(color_and_shape)
+
+	if a>=11 and b=="HR":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "HR") & (sal_data['YoE'] == "10+")]
+		st.write(color_and_shape)
+	if a<=2 and b=="Sales":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "0-2")]
+		st.write(color_and_shape)
+	if 2<a <=4 and b=="Sales":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "3-4")]
+		st.write(color_and_shape)
+
+	if 4<a <=10 and b=="Sales":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "5-10")]
+		st.write(color_and_shape)
+
+
+	if a>=11 and b=="Sales":
+		color_and_shape = sal_data.loc[(sal_data['Job Role'] == "Sales") & (sal_data['YoE'] == "10+")]
+		st.write(color_and_shape)
+
+
+
+
+
 
