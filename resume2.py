@@ -9,7 +9,8 @@ import en_core_web_sm
 import pandas as pd
 from pathlib import Path
 import fitz
-
+import docx
+import re
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
@@ -33,7 +34,6 @@ filename=file_selector()
 if st.button("Process"):
 	
 	st.write("You selected `%s` " %filename)
-	import docx 
 	doc = docx.Document(filename) 
 	job_description = ''
 	for para in doc.paragraphs:
@@ -49,7 +49,6 @@ if st.button("Process"):
 	#st.write("Name of the Candidate: ",Skills_extraction['name'])
 #st.write("Skills----",Skills_extraction['skills'])
 	#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
-	import re
 	if extract_for_YoE['total_exp']==0
 		try:
 			years_of_experience = re.findall(r'\d+\+?\s+years', job_description)
