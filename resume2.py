@@ -52,7 +52,7 @@ if st.button("Process"):
 	st.write(extract_for_YoE["total_exp"])
 	st.write(exp)
 	st.write(type(exp))
-	
+	job_description=""
 	if exp==0:
 		try:
 			years_of_experience = re.findall(r'\d+\+?\s+years', job_description)
