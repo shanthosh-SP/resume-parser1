@@ -34,7 +34,7 @@ filename=file_selector()
 if st.button("Process"):
 	
 	st.write("You selected `%s` " %filename)
-	doc = docx.Document(filename) 
+	doc = docx.Document(filename)
 	job_description = ''
 	for para in doc.paragraphs:
 		x=para.text+' '
