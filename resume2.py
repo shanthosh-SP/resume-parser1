@@ -34,18 +34,18 @@ filename=file_selector()
 if st.button("Process"):
 	
 	st.write("You selected `%s` " %filename)
-# 	doc = docx.Document(filename)
-# 	job_description = ''
-# 	for para in doc.paragraphs:
-# 		x=para.text+' '
-# 		job_description += x
-# 		print(job_description)
+	doc = docx.Document(filename)
+	job_description = ''
+	for para in doc.paragraphs:
+		x=para.text+' '
+		job_description += x
+		print(job_description)
 
 	Skills_extraction=ResumeParser(filename).get_extracted_data()
 	
 	extract_for_YoE=resumeparse.read_file(filename)
 	#st.write("Name of the Candidate: ",Skills_extraction['name'])
-#st.write("Skills----",Skills_extraction['skills'])
+	#st.write("Skills----",Skills_extraction['skills'])
 	#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
 	st.write(type(extract_for_YoE))
 	exp=extract_for_YoE["total_exp"]
