@@ -61,11 +61,14 @@ if st.button("Process"):
 		folder_name = 'Categories/Advanced'
 	if not os.path.exists(folder_name):
 		os.makedirs(folder_name)
+	os.environ["GITHUB_REPOSITORY"] = "shanthosh-sp/resume-parser1"
+
+	# Then get the repository using the environment variable
 	
 	# Move the selected file to the appropriate folder
 	shutil.move(filename, os.path.join(folder_name, os.path.basename(filename)))
 	g = Github("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")
-	repo = g.get_repo(resume-parser1)
+	repo = g.get_repo(os.environ["GITHUB_REPOSITORY"])
 	with open(os.path.join(folder_name, os.path.basename(filename)), "rb") as file:
 		content = file.read()
 		repo.create_file(os.path.join(folder_name, os.path.basename(filename)), f"Adding {os.path.basename(filename)}", content)
