@@ -9,14 +9,14 @@ import en_core_web_sm
 import pandas as pd
 from pathlib import Path
 
-# nltk.download('stopwords')
-# nltk.download('punkt')
-# nltk.download('averaged_perceptron_tagger')
-# nltk.download('universal_tagset')
-# nltk.download('maxent_ne_chunker')
-# nltk.download('stopwords')
-# nltk.download('wordnet')
-# nltk.download('brown')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('universal_tagset')
+nltk.download('maxent_ne_chunker')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 
