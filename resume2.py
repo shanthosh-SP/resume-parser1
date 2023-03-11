@@ -11,9 +11,7 @@ import os
 import shutil
 
 import os
-os.environ["GITHUB_REPOSITORY"] = "shanthosh-SP/resume-parser1"
-GITHUB_REPOSITORY = os.environ["GITHUB_REPOSITORY"]
-st.write("GITHUB_REPOSITORY:", GITHUB_REPOSITORY)
+
 
 # nltk.download('stopwords')
 # nltk.download('punkt')
@@ -73,7 +71,12 @@ if st.button("Process"):
 	
 	# Move the selected file to the appropriate folder
 	shutil.move(filename, os.path.join(folder_name, os.path.basename(filename)))
+	
 	g = Github("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")
+	os.environ["GITHUB_REPOSITORY"] = "shanthosh-SP/resume-parser1"
+	GITHUB_REPOSITORY = os.environ["GITHUB_REPOSITORY"]
+	st.write("GITHUB_REPOSITORY:", GITHUB_REPOSITORY)
+
 	repo = g.get_repo(os.environ["GITHUB_REPOSITORY"])
 	with open(os.path.join(folder_name, os.path.basename(filename)), "rb") as file:
 		content = file.read()
