@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import pandas as pd
 from github import Github
+from git import Git
 
 import nltk
 import spacy
