@@ -29,21 +29,21 @@ def file_selector(folder_path='Resumes'):
 	filename=os.listdir(folder_path)
 	selected_filename=st.selectbox('select a file',filename)
 	return os.path.join(folder_path,selected_filename)
-filename=file_selector()
+
 
 if st.button("Process"):
-	
+	filename=file_selector()
 	st.write("You selected `%s` " %filename)
-	def extract_experience(doc_path):
-	 doc = docx.Document(filename)
-	 job_description = ''
-	 for para in doc.paragraphs:
-	   x=para.text+' '
-	   job_description = job_description + x
-	   print(job_description)
-
-	Skills_extraction=ResumeParser(filename).get_extracted_data()
 	
+	def extract_experience(doc_path):
+		 doc = docx.Document(filename)
+		 job_description = ''
+		 for para in doc.paragraphs:
+		   x=para.text+' '
+		   job_description = job_description + x
+		 return job_description
+        job_description = extract_experience(filename)
+	Skills_extraction=ResumeParser(filename).get_extracted_data()
 	extract_for_YoE=resumeparse.read_file(filename)
 	#st.write("Name of the Candidate: ",Skills_extraction['name'])
 	#st.write("Skills----",Skills_extraction['skills'])
