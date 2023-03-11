@@ -72,7 +72,7 @@ if st.button("Process"):
 	# Move the selected file to the appropriate folder
 	shutil.move(filename, os.path.join(folder_name, os.path.basename(filename)))
 	
-	g = Github('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')
+	g = Github("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")
 	repo = g.get_repo("shanthosh-SP/resume-parser1")
 	with open(os.path.join(folder_name, os.path.basename(filename)), "rb") as file:
 		content = file.read()
