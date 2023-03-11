@@ -2,15 +2,13 @@ import streamlit as st
 import os
 #from github import Github
 import pandas as pd
-import github3
+
 import nltk
 import spacy
 import en_core_web_sm
 import pandas as pd
 from pathlib import Path
-import fitz
-import docx
-import re
+
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
@@ -21,8 +19,6 @@ import re
 # nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
-
-gh = github3.login(username="shanthosh", password="Sandy$$$12345")
 
 def file_selector(folder_path='Resumes'):
 	st.title("File Uploader")
