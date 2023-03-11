@@ -36,24 +36,24 @@ if st.button("Process"):
 	st.write("You selected `%s` " %filename)
 	
 	def extract_experience(doc_path):
-		 doc = docx.Document(filename)
-		 job_description = ''
-		 for para in doc.paragraphs:
-		   x=para.text+' '
-		   job_description = job_description + x
-		 return job_description
-		job_description = extract_experience(filename)
-		Skills_extraction=ResumeParser(filename).get_extracted_data()
-		extract_for_YoE=resumeparse.read_file(filename)
-		#st.write("Name of the Candidate: ",Skills_extraction['name'])
-		#st.write("Skills----",Skills_extraction['skills'])
-		#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
-		st.write(type(extract_for_YoE))
-		exp=extract_for_YoE["total_exp"]
-		st.write(extract_for_YoE["total_exp"])
-		st.write(exp)
-		st.write(type(exp))
-	
+		doc = docx.Document(filename)
+		job_description = ''
+		for para in doc.paragraphs:
+			x=para.text+' '
+			job_description = job_description + x
+		return job_description
+	job_description = extract_experience(filename)
+	Skills_extraction=ResumeParser(filename).get_extracted_data()
+	extract_for_YoE=resumeparse.read_file(filename)
+	#st.write("Name of the Candidate: ",Skills_extraction['name'])
+	#st.write("Skills----",Skills_extraction['skills'])
+	#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
+	st.write(type(extract_for_YoE))
+	exp=extract_for_YoE["total_exp"]
+	st.write(extract_for_YoE["total_exp"])
+	st.write(exp)
+	st.write(type(exp))
+		
 	if exp==0:
 		try:
 			years_of_experience = re.findall(r'\d+\+?\s+years', job_description)
