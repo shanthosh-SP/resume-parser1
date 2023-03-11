@@ -39,7 +39,7 @@ if st.button("Process"):
 	 job_description = ''
 	 for para in doc.paragraphs:
 	   x=para.text+' '
-	   job_description += x
+	   job_description = job_description + x
 	   print(job_description)
 
 	Skills_extraction=ResumeParser(filename).get_extracted_data()
