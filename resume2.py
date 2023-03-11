@@ -34,9 +34,10 @@ filename=file_selector()
 if st.button("Process"):
 	
 	st.write("You selected `%s` " %filename)
-	doc = docx.Document(filename)
-	job_description = ''
-	for para in doc.paragraphs:
+	def extract_experience(doc_path):
+	 doc = docx.Document(filename)
+	 job_description = ''
+	 for para in doc.paragraphs:
 		x=para.text+' '
 		job_description += x
 		print(job_description)
