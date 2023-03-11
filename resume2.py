@@ -38,9 +38,9 @@ if st.button("Process"):
 	 doc = docx.Document(filename)
 	 job_description = ''
 	 for para in doc.paragraphs:
-		x=para.text+' '
-		job_description += x
-		print(job_description)
+	   x=para.text+' '
+	   job_description += x
+	   print(job_description)
 
 	Skills_extraction=ResumeParser(filename).get_extracted_data()
 	
