@@ -74,7 +74,7 @@ if st.button("Process"):
 	shutil.move(filename, os.path.join(folder_name, os.path.basename(filename)))
 	
 	g = Github("<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>")
-	repo = g.get_repo("shanthosh-SP/resume-parser")
+	repo = g.get_repos("shanthosh-SP/resume-parser1")
 	with open(os.path.join(folder_name, os.path.basename(filename)), "rb") as file:
 		content = file.read()
 		repo.create_file(os.path.join(folder_name, os.path.basename(filename)), f"Adding {os.path.basename(filename)}", content)
