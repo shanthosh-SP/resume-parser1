@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import pandas as pd
 from github import Github
+
 import nltk
 import spacy
 import en_core_web_sm
@@ -9,14 +10,19 @@ import pandas as pd
 import os
 import shutil
 
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('universal_tagset')
-nltk.download('maxent_ne_chunker')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('brown')
+import os
+os.environ["GITHUB_REPOSITORY"] = "shanthosh-SP/resume-parser1"
+GITHUB_REPOSITORY = os.environ["GITHUB_REPOSITORY"]
+st.write("GITHUB_REPOSITORY:", GITHUB_REPOSITORY)
+
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('universal_tagset')
+# nltk.download('maxent_ne_chunker')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 
@@ -61,7 +67,7 @@ if st.button("Process"):
 		folder_name = 'Categories/Advanced'
 	if not os.path.exists(folder_name):
 		os.makedirs(folder_name)
-	os.environ["GITHUB_REPOSITORY"] = "shanthosh-SP/resume-parser1"
+	
 
 	# Then get the repository using the environment variable
 	
