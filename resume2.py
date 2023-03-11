@@ -42,17 +42,17 @@ if st.button("Process"):
 		   x=para.text+' '
 		   job_description = job_description + x
 		 return job_description
-        job_description = extract_experience(filename)
-	Skills_extraction=ResumeParser(filename).get_extracted_data()
-	extract_for_YoE=resumeparse.read_file(filename)
-	#st.write("Name of the Candidate: ",Skills_extraction['name'])
-	#st.write("Skills----",Skills_extraction['skills'])
-	#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
-	st.write(type(extract_for_YoE))
-	exp=extract_for_YoE["total_exp"]
-	st.write(extract_for_YoE["total_exp"])
-	st.write(exp)
-	st.write(type(exp))
+		job_description = extract_experience(filename)
+		Skills_extraction=ResumeParser(filename).get_extracted_data()
+		extract_for_YoE=resumeparse.read_file(filename)
+		#st.write("Name of the Candidate: ",Skills_extraction['name'])
+		#st.write("Skills----",Skills_extraction['skills'])
+		#st.write("Years of Experience-----",extract_for_YoE['total_exp'])
+		st.write(type(extract_for_YoE))
+		exp=extract_for_YoE["total_exp"]
+		st.write(extract_for_YoE["total_exp"])
+		st.write(exp)
+		st.write(type(exp))
 	
 	if exp==0:
 		try:
