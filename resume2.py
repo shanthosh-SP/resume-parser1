@@ -6,7 +6,8 @@ import nltk
 import spacy
 import en_core_web_sm
 import pandas as pd
-
+import os
+import shutil
 
 nltk.download('stopwords')
 nltk.download('punkt')
@@ -49,6 +50,20 @@ if st.button("Process"):
 	Skills_extracted=[num.strip(' ') for num in Skills_extracted]
 	Skills_extracted=[num.strip(')') for num in Skills_extracted]
 	Skills_extracted=[num.strip('(') for num in Skills_extracted]
+	experience_level = extract_for_YoE['total_exp']
+	if experience_level <= 2:
+		folder_name = 'Categories/Fresher'
+	elif 2 < experience_level <= 4:
+		folder_name = 'Categories/Intermediate'
+	elif 4 < experience_level <= 10:
+		folder_name = 'Categories/Senior'
+	elif experience_level > 10:
+		folder_name = 'Categories/Advanced'
+	if not os.path.exists(folder_name):
+		os.makedirs(folder_name)
+	
+	# Move the selected file to the appropriate folder
+	shutil.move(filename, os.path.join(folder_name, os.path.basename(filename)))
 
 	res={'skills_reqd_DataScientist':[],'skills_reqd_HR':[],'skills_reqd_sales':[]}
 	for i in Skills_extracted:
