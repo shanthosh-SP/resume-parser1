@@ -1,13 +1,9 @@
 nltk==3.6.7
+streamlit==1.20.0
 resume_parser==0.8.4
 spacy==2.3.9
 pandas==1.5.3
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.1/en_core_web_sm-2.3.1.tar.gz
 pyresparser==1.0.6
 importlib-metadata==3.2.0
-github3.py==3.2.0
-PyPDF2==3.0.1
-PyMuPDF==1.21.1
-python-docx==0.8.11
-docx==0.2.4
 
