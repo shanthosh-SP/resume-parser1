@@ -73,7 +73,7 @@ if st.button("Process"):
 	shutil.move(filename, os.path.join(folder_name, os.path.basename(filename)))
 	
 	g = Github("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")
-	os.environ["GITHUB_REPOSITORY"] = "shanthosh-SP/resume-parser1"
+	os.environ["GITHUB_REPOSITORY"] = "shanthosh/resume-parser1"
 	GITHUB_REPOSITORY = os.environ["GITHUB_REPOSITORY"]
 	st.write("GITHUB_REPOSITORY:", GITHUB_REPOSITORY)
 
