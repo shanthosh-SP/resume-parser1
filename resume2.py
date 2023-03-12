@@ -10,17 +10,18 @@ import en_core_web_sm
 import pandas as pd
 import os
 import docx
-# nltk.download('stopwords')
-# nltk.download('punkt')
-# nltk.download('averaged_perceptron_tagger')
-# nltk.download('universal_tagset')
-# nltk.download('maxent_ne_chunker')
-# nltk.download('stopwords')
-# nltk.download('wordnet')
-# nltk.download('brown')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('universal_tagset')
+nltk.download('maxent_ne_chunker')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 import docx2txt
+
 def file_selector(folder_path='Resumes'):
 	filename=os.listdir(folder_path)
 	selected_filename=st.selectbox('select a file',filename)
@@ -93,7 +94,7 @@ if st.button("Process"):
 		#st.write(a)
 
 
-		sal_data=pd.read_csv(r"salary_dataset.csv")
+		sal_data=pd.read_csv(r"sal_data.csv")
 		sal_data.info()
 
 		sal_data=pd.DataFrame(sal_data)
