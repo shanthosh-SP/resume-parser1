@@ -1,4 +1,4 @@
-
+Streamlit==1.20.1
 docx==0.2.4
 nltk==3.6.7
 resume_parser==0.8.4
