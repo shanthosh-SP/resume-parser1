@@ -161,7 +161,7 @@ if st.button("Process"):
 # set the path to the folder where the resumes will be moved to
 		freshers_folder = "Categories/freshers"
 		intermediate_folder = "intermediate"
-		senior_folder = "senior"
+		senior_folder = "Categories/senior/"
 		advance_folder = "advance"
 
 # create the folders if they do not exist
@@ -171,15 +171,12 @@ if st.button("Process"):
 
 # loop through the resumes
 		for resume in os.listdir(resumes_folder):
-    # extract the years of experience from the filename
-			years = extract_for_YoE['total_exp']
-    
     # move the resume to the appropriate folder based on years of experience
-			if years <= 2:
+			if extract_for_YoE['total_exp'] <= 2:
 				shutil.move(os.path.join(resumes_folder, resume), advance_folder)
-			elif 2<years<=4:
+			elif 2<extract_for_YoE['total_exp']<=4:
 				shutil.move(os.path.join(resumes_folder, resume), senior_folder)
-			elif 4<years<=10:
+			elif 4<extract_for_YoE['total_exp']<=10:
 				shutil.move(os.path.join(resumes_folder, resume), intermediate_folder)
 			else:
 				shutil.move(os.path.join(resumes_folder, resume), freshers_folder)
