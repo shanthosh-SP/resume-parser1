@@ -154,6 +154,30 @@ if st.button("Process"):
 
 			
 		final(extract_for_YoE['total_exp'],b)
+		resume_dir = "Resumes"
+		for filename in os.listdir(resume_dir):
+    # Extract the experience level from the resume
+    # (assuming that you have already implemented this step)
+			experience_level = resumeparse.read_file(filename)
+
+    # Determine the folder where the resume should be stored
+			if experience_level<= 2:
+				folder_name = "junior"
+			elif experience_level<= 2:
+				folder_name = "mid"
+			elif experience_level<= 2:
+				folder_name = "senior"
+			else:
+				folder_name = "expert"
+
+    # Create the folder if it doesn't exist
+			folder_path = os.path.join("https://github.com/shanthosh-SP/resume-parser1/tree/main/Categories", folder_name)
+			os.makedirs(folder_path, exist_ok=True)
+
+    # Move the resume to the appropriate folder	
+			resume_path = os.path.join(resume_dir, filename)
+			new_resume_path = os.path.join(folder_path, filename)
+			os.rename(resume_path, new_resume_path)
 	elif filename.endswith(".doc") or filename.endswith(".docx"):
 
 		doc = docx.Document(filename)
