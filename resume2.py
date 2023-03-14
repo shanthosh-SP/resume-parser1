@@ -162,7 +162,7 @@ if st.button("Process"):
 
 # Make sure that the folders exist in the Github repo
 		for folder in folders:
-    			folder_url = f"{repo_url}/tree/main/{folder}"
+			folder_url = f"{repo_url}/tree/main/{folder}"
 			response = requests.get(folder_url)
 			if response.status_code == 404:
 				create_url = f"{repo_url}/new/main/{folder}"
