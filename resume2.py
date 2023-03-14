@@ -38,7 +38,7 @@ def file_selector():
 		return os.path.join(folder_path, selected_filename)
 	else:
 		st.sidebar.error("Please select a file.")
-
+filename=file_selector()
 if st.button("Process"):
 	if filename.endswith(".pdf"):
 	
