@@ -169,7 +169,7 @@ if st.button("Process"):
 				response = requests.get(create_url)
 
 # Loop through each resume file and extract the years of experience
-		folder_path='shanthosh-SP/resume-parser1/tree/main/Resumes'
+		folder_path='shanthosh-SP/resume-parser1/Resumes'
 #resume_files = ["resume1.docx", "resume2.pdf", "resume3.txt"]
 		for filenames in folder_path:
     # Save the resume file to the appropriate folder based on years of experience
