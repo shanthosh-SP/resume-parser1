@@ -94,6 +94,31 @@ if st.button("Process"):
 		st.write(c+' '+b)
 		#a=extract_for_YoE['total_exp']
 		#st.write(a)
+		
+		resumes_folder = "Resumes"
+# set the path to the folder where the resumes will be moved to
+		freshers_folder = "Categories/freshers/"
+		intermediate_folder = "Categories/intermediate/"
+		senior_folder = "Categories/senior/"
+		advance_folder = "Categories/Advance"
+
+# create the folders if they do not exist
+		for folder in [freshers_folder, intermediate_folder, senior_folder, advance_folder]:
+			if not os.path.exists(folder):
+				os.makedirs(folder)
+
+# loop through the resumes
+		for resume in os.listdir(resumes_folder):
+			st.write("check for loop")
+    # move the resume to the appropriate folder based on years of experience
+			if extract_for_YoE['total_exp'] <= 2:
+				shutil.move(os.path.join(resumes_folder, resume), advance_folder)
+			elif 2<extract_for_YoE['total_exp']<=4:
+				shutil.move(os.path.join(resumes_folder, resume), senior_folder)
+			elif 4<extract_for_YoE['total_exp']<=10:
+				shutil.move(os.path.join(resumes_folder, resume), intermediate_folder)
+			else:
+				shutil.move(os.path.join(resumes_folder, resume), freshers_folder)
 
 
 		sal_data=pd.read_csv(r"Sal_data.csv")
@@ -156,32 +181,7 @@ if st.button("Process"):
 
 			
 		final(extract_for_YoE['total_exp'],b)
-		resumes_folder = "Resumes"
-
-# set the path to the folder where the resumes will be moved to
-		freshers_folder = "Categories/freshers"
-		intermediate_folder = "intermediate"
-		senior_folder = "Categories/senior/"
-		advance_folder = "advance"
-
-# create the folders if they do not exist
-		for folder in [freshers_folder, intermediate_folder, senior_folder, advance_folder]:
-			if not os.path.exists(folder):
-				os.makedirs(folder)
-
-# loop through the resumes
-		for resume in os.listdir(resumes_folder):
-    # move the resume to the appropriate folder based on years of experience
-			if extract_for_YoE['total_exp'] <= 2:
-				shutil.move(os.path.join(resumes_folder, resume), advance_folder)
-			elif 2<extract_for_YoE['total_exp']<=4:
-				shutil.move(os.path.join(resumes_folder, resume), senior_folder)
-			elif 4<extract_for_YoE['total_exp']<=10:
-				shutil.move(os.path.join(resumes_folder, resume), intermediate_folder)
-			else:
-				shutil.move(os.path.join(resumes_folder, resume), freshers_folder)
-
-
+		
 		
 	elif filename.endswith(".doc") or filename.endswith(".docx"):
 
