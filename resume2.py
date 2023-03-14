@@ -8,6 +8,9 @@ import en_core_web_sm
 import pandas as pd
 import os
 import docx
+import requests
+import os
+
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
@@ -152,10 +155,8 @@ if st.button("Process"):
 
 			
 		final(extract_for_YoE['total_exp'],b)
-import requests
-import os
 
-# Specify the Github repo URL and the folder names to store resumes
+# Specify the Github repo URL and the folder names to store resumes	
 		repo_url = "https://github.com/shanthosh-SP/resume-parser1/Categories"
 		folders = ["Fresher", "Intermediate", "Senior","Advanced"]
 
@@ -171,8 +172,6 @@ import os
 		folder_path='Resumes'
 #resume_files = ["resume1.docx", "resume2.pdf", "resume3.txt"]
 		for resume_file in folder_path:
-    # Extract the years of experience from the resume_file here
-    		years_of_experience = 3
     
     # Save the resume file to the appropriate folder based on years of experience
 			if extract_for_YoE['total_exp'] < 2:
