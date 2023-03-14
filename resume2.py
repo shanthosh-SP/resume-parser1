@@ -154,7 +154,7 @@ if st.button("Process"):
 		final(extract_for_YoE['total_exp'],b)
 		resume_dir = "Resumes"
 		a=extract_for_YoE['total_exp']
-		for filename in os.listdir(resume_dir):
+		for filename in os.listdir(folder_path):
     # Extract the experience level from the resume
     # (assuming that you have already implemented this step)
 			experience_level = resumeparse.read_file(filename)
