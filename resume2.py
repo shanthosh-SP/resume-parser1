@@ -185,8 +185,8 @@ if st.button("Process"):
 
 	    # Upload the resume file to the Github repo
 			file_url = f"{repo_url}/upload/main/{folder_name}/{resume_file}"
-			file_content = open(resume_file, 'rb').read()
-			headers = {'Authorization': 'token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>'}
+			file_content = open(folder_path, 'rb').read()
+			headers = {'Authorization': 'token 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'}
 			response = requests.put(file_url, headers=headers, data=file_content)
 			if response.status_code == 201:
 				print(f"Resume {resume_file} uploaded successfully to {folder_name} folder.")
