@@ -7,15 +7,15 @@ import spacy
 import en_core_web_sm
 import pandas as pd
 import os
-
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('universal_tagset')
-nltk.download('maxent_ne_chunker')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('brown')
+import docx
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('universal_tagset')
+# nltk.download('maxent_ne_chunker')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 import docx2txt
@@ -92,7 +92,7 @@ if st.button("Process"):
 		#st.write(a)
 
 
-		sal_data=pd.read_csv(r"sal_data.csv")
+		sal_data=pd.read_csv(r"Sal_data.csv")
 		sal_data.info()
 
 		sal_data=pd.DataFrame(sal_data)
@@ -223,7 +223,7 @@ if st.button("Process"):
 		#st.write(a)
 
 
-		sal_data=pd.read_csv(r"salary_dataset.csv")
+		sal_data=pd.read_csv(r"Sal_data.csv")
 		sal_data.info()
 
 		sal_data=pd.DataFrame(sal_data)
