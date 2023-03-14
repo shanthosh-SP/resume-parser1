@@ -98,8 +98,6 @@ if st.button("Process"):
 		sal_data=pd.DataFrame(sal_data)
 		
 
-		st.write(a,b)
-
 		def final(a,b):
 			
 			if a<=2 and b=="DataScientist":
@@ -155,6 +153,7 @@ if st.button("Process"):
 			
 		final(extract_for_YoE['total_exp'],b)
 		resume_dir = "Resumes"
+		a=extract_for_YoE['total_exp']
 		for filename in os.listdir(resume_dir):
     # Extract the experience level from the resume
     # (assuming that you have already implemented this step)
