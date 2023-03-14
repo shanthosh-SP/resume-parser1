@@ -10,6 +10,7 @@ import os
 import docx
 import requests
 import os
+import shutil
 
 # nltk.download('stopwords')
 # nltk.download('punkt')
@@ -155,42 +156,35 @@ if st.button("Process"):
 
 			
 		final(extract_for_YoE['total_exp'],b)
+		resumes_folder = "Resumes"
 
-# Specify the Github repo URL and the folder names to store resumes	
-		repo_url = "https://github.com/shanthosh-SP/resume-parser1/Categories"
-		folders = ["Fresher", "Intermediate", "Senior","Advanced"]
+# set the path to the folder where the resumes will be moved to
+		freshers_folder = "Categories/freshers"
+		intermediate_folder = "intermediate"
+		senior_folder = "senior"
+		advance_folder = "advance"
 
-# Make sure that the folders exist in the Github repo
-		for Categories in folders:
-			folder_url = f"{repo_url}/tree/main/{Categories}"
-			response = requests.get(folder_url)
-			if response.status_code == 404:
-				create_url = f"{repo_url}/new/main/{Categories}"
-				response = requests.get(create_url)
+# create the folders if they do not exist
+		for folder in [freshers_folder, intermediate_folder, senior_folder, advance_folder]:
+			if not os.path.exists(folder):
+				os.makedirs(folder)
 
-# Loop through each resume file and extract the years of experience
-		folder_path="Resumes/"
-#resume_files = ["resume1.docx", "resume2.pdf", "resume3.txt"]
-		for filenames in folder_path:
-    # Save the resume file to the appropriate folder based on years of experience
-			if extract_for_YoE['total_exp'] < 2:
-				folder_name = folders[0]
-			elif extract_for_YoE['total_exp'] >= 2 and extract_for_YoE['total_exp'] <= 5:
-				folder_name = folders[1]
-			elif extract_for_YoE['total_exp'] >= 6 and extract_for_YoE['total_exp'] <= 10:
-				folder_name = folders[2]
+# loop through the resumes
+		for resume in os.listdir(resumes_folder):
+    # extract the years of experience from the filename
+			years = extract_for_YoE['total_exp']
+    
+    # move the resume to the appropriate folder based on years of experience
+			if years <= 2:
+				shutil.move(os.path.join(resumes_folder, resume), advance_folder)
+			elif 2<years<=4:
+				shutil.move(os.path.join(resumes_folder, resume), senior_folder)
+			elif 4<years<=10:
+				shutil.move(os.path.join(resumes_folder, resume), intermediate_folder)
 			else:
-				folder_name = folders[3]
+				shutil.move(os.path.join(resumes_folder, resume), freshers_folder)
 
-	    # Upload the resume file to the Github repo
-			file_url = f"{repo_url}/upload/main/{folder_name}/{filename}"
-			file_content = open(folder_path, 'rb').read()
-			headers = {'Authorization': 'token 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'}
-			response = requests.put(file_url, headers=headers, data=file_content)
-			if response.status_code == 201:
-				print(f"Resume {filename} uploaded successfully to {folder_name} folder.")
-			else:
-				print(f"Failed to upload {filename} to {folder_name} folder.")
+
 		
 	elif filename.endswith(".doc") or filename.endswith(".docx"):
 
