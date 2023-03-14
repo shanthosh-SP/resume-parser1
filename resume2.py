@@ -161,7 +161,7 @@ if st.button("Process"):
 		folders = ["Fresher", "Intermediate", "Senior","Advanced"]
 
 # Make sure that the folders exist in the Github repo
-		for folder in folders:
+		for filename in folders:
 			folder_url = f"{repo_url}/tree/main/{folder}"
 			response = requests.get(folder_url)
 			if response.status_code == 404:
@@ -171,8 +171,7 @@ if st.button("Process"):
 # Loop through each resume file and extract the years of experience
 		folder_path='Resumes'
 #resume_files = ["resume1.docx", "resume2.pdf", "resume3.txt"]
-		for resume_file in folder_path:
-    
+		for filenames in folder_path:
     # Save the resume file to the appropriate folder based on years of experience
 			if extract_for_YoE['total_exp'] < 2:
 				folder_name = folders[0]
@@ -184,14 +183,14 @@ if st.button("Process"):
 				folder_name = folders[3]
 
 	    # Upload the resume file to the Github repo
-			file_url = f"{repo_url}/upload/main/{folder_name}/{resume_file}"
+			file_url = f"{repo_url}/upload/main/{folder_name}/{filename}"
 			file_content = open(folder_path, 'rb').read()
 			headers = {'Authorization': 'token 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'}
 			response = requests.put(file_url, headers=headers, data=file_content)
 			if response.status_code == 201:
-				print(f"Resume {resume_file} uploaded successfully to {folder_name} folder.")
+				print(f"Resume {filename} uploaded successfully to {folder_name} folder.")
 			else:
-				print(f"Failed to upload {resume_file} to {folder_name} folder.")
+				print(f"Failed to upload {filename} to {folder_name} folder.")
 		
 	elif filename.endswith(".doc") or filename.endswith(".docx"):
 
