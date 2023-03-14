@@ -160,11 +160,11 @@ if st.button("Process"):
 			experience_level = resumeparse.read_file(filename)
 
     # Determine the folder where the resume should be stored
-			if experience_level<= 2:
+			if experience_level['total_exp']<= 2:
 				folder_name = "junior"
-			elif experience_level<= 2:
+			elif 2<experience_level['total_exp']<=4:
 				folder_name = "mid"
-			elif experience_level<= 2:
+			elif 4<experience_level['total_exp']<=10:
 				folder_name = "senior"
 			else:
 				folder_name = "expert"
