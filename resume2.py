@@ -152,31 +152,48 @@ if st.button("Process"):
 
 			
 		final(extract_for_YoE['total_exp'],b)
-		resume_dir = "Resumes"
-		a=extract_for_YoE['total_exp']
-		for filename in os.listdir(resume_dir):
-    # Extract the experience level from the resume
-    # (assuming that you have already implemented this step)
-			experience_level = resumeparse.read_file(filename)
+import requests
+import os
 
-    # Determine the folder where the resume should be stored
-			if experience_level['total_exp']<= 2:
-				folder_name = "junior"
-			elif 2<experience_level['total_exp']<=4:
-				folder_name = "mid"
-			elif 4<experience_level['total_exp']<=10:
-				folder_name = "senior"
+# Specify the Github repo URL and the folder names to store resumes
+		repo_url = "https://github.com/shanthosh-SP/resume-parser1/Categories"
+		folders = ["Fresher", "Intermediate", "Senior","Advanced"]
+
+# Make sure that the folders exist in the Github repo
+		for folder in folders:
+    			folder_url = f"{repo_url}/tree/main/{folder}"
+			response = requests.get(folder_url)
+			if response.status_code == 404:
+				create_url = f"{repo_url}/new/main/{folder}"
+				response = requests.get(create_url)
+
+# Loop through each resume file and extract the years of experience
+		folder_path='Resumes'
+#resume_files = ["resume1.docx", "resume2.pdf", "resume3.txt"]
+		for resume_file in folder_path:
+    # Extract the years of experience from the resume_file here
+    		years_of_experience = 3
+    
+    # Save the resume file to the appropriate folder based on years of experience
+			if extract_for_YoE['total_exp'] < 2:
+				folder_name = folders[0]
+			elif extract_for_YoE['total_exp'] >= 2 and extract_for_YoE['total_exp'] <= 5:
+				folder_name = folders[1]
+			elif extract_for_YoE['total_exp'] >= 6 and extract_for_YoE['total_exp'] <= 10:
+				folder_name = folders[2]
 			else:
-				folder_name = "expert"
+				folder_name = folders[3]
 
-    # Create the folder if it doesn't exist
-			folder_path = os.path.join("https://github.com/shanthosh-SP/resume-parser1/tree/main/Categories", folder_name)
-			os.makedirs(folder_path, exist_ok=True)
-
-    # Move the resume to the appropriate folder	
-			resume_path = os.path.join(resume_dir, filename)
-			new_resume_path = os.path.join(folder_path, filename)
-			os.rename(resume_path, new_resume_path)
+	    # Upload the resume file to the Github repo
+			file_url = f"{repo_url}/upload/main/{folder_name}/{resume_file}"
+			file_content = open(resume_file, 'rb').read()
+			headers = {'Authorization': 'token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>'}
+			response = requests.put(file_url, headers=headers, data=file_content)
+			if response.status_code == 201:
+				print(f"Resume {resume_file} uploaded successfully to {folder_name} folder.")
+			else:
+				print(f"Failed to upload {resume_file} to {folder_name} folder.")
+		
 	elif filename.endswith(".doc") or filename.endswith(".docx"):
 
 		doc = docx.Document(filename)
