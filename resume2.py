@@ -7,7 +7,7 @@ import spacy
 import en_core_web_sm
 import pandas as pd
 import os
-import docx
+
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
