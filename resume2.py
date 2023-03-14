@@ -162,10 +162,10 @@ if st.button("Process"):
 
 # Make sure that the folders exist in the Github repo
 		for filename in folders:
-			folder_url = f"{repo_url}/tree/main/{Resumes}"
+			folder_url = f"{repo_url}/tree/main/{Categories}"
 			response = requests.get(folder_url)
 			if response.status_code == 404:
-				create_url = f"{repo_url}/new/main/{Resumes}"
+				create_url = f"{repo_url}/new/main/{categories}"
 				response = requests.get(create_url)
 
 # Loop through each resume file and extract the years of experience
