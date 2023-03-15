@@ -30,16 +30,6 @@ def file_selector(folder_path='Resumes'):
 	return os.path.join(folder_path,selected_filename)
 filename=file_selector()
 
-# def file_selector():
-# 	folder_path = st.sidebar.selectbox("Select Folder", ["Resumes"])
-# 	filenames = os.listdir(folder_path)
-# 	selected_filename = st.sidebar.selectbox("Select a file", filenames)
-# 	if selected_filename is not None:
-# 		return os.path.join(folder_path, selected_filename)
-# 	else:
-# 		st.sidebar.error("Please select a file.")
-filename=file_selector()
-
 if st.button("Process"):
 	if filename.endswith(".pdf"):
 	
