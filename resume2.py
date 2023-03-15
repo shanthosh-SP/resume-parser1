@@ -99,7 +99,7 @@ if st.button("Process"):
 # set the path to the folder where the resumes will be moved to
 		freshers_folder = "Categories/fresher"
 		intermediate_folder = "Categories/intermediate"
-		senior_folder = "Categories/senior"
+		senior_folder = "Categorie/enior"
 		advance_folder = "Categories/Advance"
 
 # # create the folders if they do not exist
