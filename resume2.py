@@ -122,13 +122,13 @@ if st.button("Process"):
 # 			st.write("check for loop")
     # move the resume to the appropriate folder based on years of experience
 		if extract_for_YoE['total_exp'] <= 2:
-			shutil.move(os.path.join(resumes_folder), freshers_folder)
+			shutil.move(filename, freshers_folder)
 		elif 2<extract_for_YoE['total_exp']<=4:
-			shutil.move(os.path.join(resumes_folder), intermediate_folder)
+			shutil.move(filename, intermediate_folder)
 		elif 4<extract_for_YoE['total_exp']<=10:
-			shutil.move(os.path.join(resumes_folder), senior_folder)
+			shutil.move(filename, senior_folder)
 		else:
-			shutil.move(os.path.join(resumes_folder), advance_folder)
+			shutil.move(filename, advance_folder)
 
 
 		sal_data=pd.read_csv(r"Sal_data.csv")
