@@ -96,7 +96,7 @@ if st.button("Process"):
 		st.write(c+' '+b)
 		#a=extract_for_YoE['total_exp']
 		#st.write(a)
-		g = Github(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)
+		g = Github("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")
 
 # Get the repository object for the repository where you want to copy the file
 		repo = g.get_repo("Shanthosh-SP/resume-parser1")
