@@ -111,23 +111,23 @@ if st.button("Process"):
 		senior_folder = "Categories/senior"
 		advance_folder = "Categories/Advance"
 
-# create the folders if they do not exist
-		for folder in [freshers_folder, intermediate_folder, senior_folder, advance_folder]:
-			if not os.path.exists(folder):
-				os.makedirs(folder)
+# # create the folders if they do not exist
+# 		for folder in [freshers_folder, intermediate_folder, senior_folder, advance_folder]:
+# 			if not os.path.exists(folder):
+# 				os.makedirs(folder)
 
-# loop through the resumes
-		for resume in os.listdir(resumes_folder):
-			st.write("check for loop")
+# # loop through the resumes
+# 		for resume in os.listdir(resumes_folder):
+# 			st.write("check for loop")
     # move the resume to the appropriate folder based on years of experience
-			if extract_for_YoE['total_exp'] <= 2:
-				shutil.move(os.path.join(resumes_folder, resume), advance_folder)
-			elif 2<extract_for_YoE['total_exp']<=4:
-				shutil.move(os.path.join(resumes_folder, resume), senior_folder)
-			elif 4<extract_for_YoE['total_exp']<=10:
-				shutil.move(os.path.join(resumes_folder, resume), intermediate_folder)
-			else:
-				shutil.move(os.path.join(resumes_folder, resume), freshers_folder)
+		if extract_for_YoE['total_exp'] <= 2:
+			shutil.move(os.path.join(resumes_folder, filename), advance_folder)
+		elif 2<extract_for_YoE['total_exp']<=4:
+			shutil.move(os.path.join(resumes_folder, filename), senior_folder)
+		elif 4<extract_for_YoE['total_exp']<=10:
+			shutil.move(os.path.join(resumes_folder, filename), intermediate_folder)
+		else:
+			shutil.move(os.path.join(resumes_folder, filename), freshers_folder)
 
 
 		sal_data=pd.read_csv(r"Sal_data.csv")
