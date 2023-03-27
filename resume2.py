@@ -1,6 +1,5 @@
 import streamlit as st
-st.set_option('server.baseUrl', '/myapp')
-
+st.set_option('server.base_url', '/myapp')
 import os
 import pandas as pd
 import re
