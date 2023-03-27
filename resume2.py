@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_option('server.baseUrl', 'resume-parser')
+st.set_option('server.baseUrl', '/myapp')
 
 import os
 import pandas as pd
