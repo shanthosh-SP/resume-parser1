@@ -10,18 +10,14 @@ import os
 import docx
 import requests
 import os
-import shutil
-
-from github import Github
-
-# nltk.download('stopwords')
-# nltk.download('punkt')
-# nltk.download('averaged_perceptron_tagger')
-# nltk.download('universal_tagset')
-# nltk.download('maxent_ne_chunker')
-# nltk.download('stopwords')
-# nltk.download('wordnet')
-# nltk.download('brown')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('universal_tagset')
+nltk.download('maxent_ne_chunker')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 import docx2txt
@@ -94,24 +90,6 @@ if st.button("Process"):
 			print('He is applicable for Sales role')
 
 		st.write(c+' '+b)
-		#a=extract_for_YoE['total_exp']
-		#st.write(a)
-		g = Github("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")
-
-# Get the repository object for the repository where you want to copy the file
-		repo = g.get_repo("Shanthosh-SP/resume-parser1")
-
-# Get the source and destination paths of the file
-		src_path = filename
-		dest_path = "Categories/Senior"
-
-# Get the contents of the source file
-		contents = repo.get_contents(src_path)
-
-# Create a new file in the destination path with the same contents
-		if 4< extract_for_YoE['total_exp'] <= 10:
-			repo.create_file(dest_path, "Copy file from {} to {}".format(src_path, dest_path), contents.decoded_content)
-		
 		
 
 		sal_data=pd.read_csv(r"Sal_data.csv")
