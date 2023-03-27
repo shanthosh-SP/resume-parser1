@@ -1,4 +1,6 @@
 import streamlit as st
+st.set_option('server.baseUrl', 'resume-parser')
+
 import os
 import pandas as pd
 import re
