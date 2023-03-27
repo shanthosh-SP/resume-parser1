@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_option('server.base_url', '/myapp')
+st.set_option('server.baseUrl', '/myapp')
 import os
 import pandas as pd
 import re
@@ -7,10 +7,8 @@ import nltk
 import spacy
 import en_core_web_sm
 import pandas as pd
-import os
 import docx
 import requests
-import os
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
