@@ -6,7 +6,8 @@ import nltk
 import spacy
 import en_core_web_sm
 import docx
-import requests
+import pytesseract
+from pdf2image import convert_from_path
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
