@@ -26,7 +26,9 @@ def select_resume_file(folder_path='Resumes'):
 
 def extract_skills(resume_file):
     Skills_extraction = ResumeParser(resume_file).get_extracted_data()
+    st.write(Skills_extraction)
     extract_for_YoE = resumeparse.read_file(resume_file)
+    st.write(extract_for_YoE)
     Skills_extracted = Skills_extraction['skills']
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
     res = {'DataScientist': [], 'HR': [], 'Sales': []}
