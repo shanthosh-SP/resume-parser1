@@ -43,6 +43,7 @@ def extract_skills(resume_file):
             res['HR'].append(skill)
         if skill in ["sales", "marketing"]:
             res['Sales'].append(skill)
+    st.write(res, extract_for_YoE['total_exp'])
     return res, extract_for_YoE['total_exp']
 
 def predict_job_role(skills):
@@ -57,6 +58,7 @@ def predict_job_role(skills):
 
 def select_salary_data():
     sal_data = pd.read_csv("Sal_data.csv")
+    st.write(sal_data)
     return sal_data
 
 def get_salary_for_experience(sal_data, job_role, experience):
