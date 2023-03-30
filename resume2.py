@@ -29,6 +29,17 @@ def extract_skills(resume_file):
     st.write(Skills_extraction)
     extract_for_YoE = resumeparse.read_file(resume_file)
     st.write(extract_for_YoE)
+    if Skills_extraction['skills'] is None:
+        if Skills_extraction is None:
+        images = convert_from_path(resume_file)
+
+        # Process each image and extract text
+        for i, image in enumerate(images):
+            # Convert the image to grayscale
+            image = image.convert('L')
+
+            # Use pytesseract to extract text from the image
+            resume_file = pytesseract.image_to_string(image)
     Skills_extracted = Skills_extraction['skills']
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
     res = {'DataScientist': [], 'HR': [], 'Sales': []}
@@ -45,38 +56,7 @@ def extract_skills(resume_file):
             res['HR'].append(skill)
         if skill in ['sales', 'account management', 'client relationship management', 'sales forecasting', 'sales strategy', 'sales negotiations', 'pipeline management', 'territory management', 'customer acquisition', 'sales performance', 'sales reporting','website sales','cilents','metrics','inside sales','strategic content development','presales executives','cold calling','executive',' marketing','business development','crm','market research', 'website sales', 'inside sales','negotiations','customer service']:
             res['Sales'].append(skill)
-    if Skills_extraction is None:
-        images = convert_from_path(resume_file)
-
-        # Process each image and extract text
-        for i, image in enumerate(images):
-            # Convert the image to grayscale
-            image = image.convert('L')
-
-            # Use pytesseract to extract text from the image
-            resume_file = pytesseract.image_to_string(image)
-
-            # Print the text
-            st.write('Page', i+1, 'text:', resume_file)
-        Skills_extraction = ResumeParser(resume_file).get_extracted_data()
-        extract_for_YoE = resumeparse.read_file(resume_file)
-        Skills_extracted = Skills_extraction['skills']
-        Skills_extracted = [x.lower().strip() for x in Skills_extracted]
-        res = {'DataScientist': [], 'HR': [], 'Sales': []}
-        for skill in Skills_extracted:
-            if skill in ['machine learning','data mining','predictive modeling', 
-                          'statistical analysis', 'data visualization', 'natural language processing', 'big data', 'data warehousing', 'sql', 
-                          'python/r programming', 'deep learning', 'artificial intelligence', 'data analytics', 'a/b testing', 'feature engineering', 
-                          'etl processes', 'time series analysis', 'regression analysis',
-                         'cluster analysis',
-                         'decision trees','power bi']:
-
-                res['DataScientist'].append(skill)
-            if skill in ['ats','applicant tracking systems','job postings', 'sourcing','source' ,'interviewing skills', 'hiring process', 'job descriptions', 'talent acquisition', 'diversity and inclusion', 'background checks', 'onboarding','hr consulting' ,'recruiting','recruiter','shortlisting','interviewing','end to end recruitment','deadline','reporting','hire','walk-in drives','phone interviewing',' candidate management systems','decisionmaking','management','psychology','monitoring''cms','screening resumes','lateral']:
-                res['HR'].append(skill)
-            if skill in ['sales', 'account management', 'client relationship management', 'sales forecasting', 'sales strategy', 'sales negotiations', 'pipeline management', 'territory management', 'customer acquisition', 'sales performance', 'sales reporting','website sales','cilents','metrics','inside sales','strategic content development','presales executives','cold calling','executive',' marketing','business development','crm','market research', 'website sales', 'inside sales','negotiations','customer service']:
-                res['Sales'].append(skill)
-        return res, extract_for_YoE['total_exp']
+    
     return res, extract_for_YoE['total_exp']
 
 def predict_job_role(skills):
