@@ -43,7 +43,6 @@ def extract_skills(resume_file):
             res['HR'].append(skill)
         if skill in ["sales", "marketing"]:
             res['Sales'].append(skill)
-    st.write(res, extract_for_YoE['total_exp'])
     return res, extract_for_YoE['total_exp']
 
 def predict_job_role(skills):
@@ -58,7 +57,6 @@ def predict_job_role(skills):
 
 def select_salary_data():
     sal_data = pd.read_csv("Sal_data.csv")
-    st.write(sal_data)
     return sal_data
 
 def get_salary_for_experience(sal_data, job_role, experience):
@@ -72,13 +70,12 @@ def get_salary_for_experience(sal_data, job_role, experience):
         yoe = "10+"
     else:
         yoe = str(experience) + "-" + str(experience + 1)
-    st.write(sal_data.loc[(sal_data['Job Role'] == job_role) & (sal_data['YoE'] == yoe)])
     return sal_data.loc[(sal_data['Job Role'] == job_role) & (sal_data['YoE'] == yoe)]
 
 def display_salary_prediction(sal_data, job_role, experience):
     salary_data = get_salary_for_experience(sal_data, job_role, experience)
-    st.write("Salary prediction:")
-    st.write(salary_data)
+#     st.write("Salary prediction:")
+#     st.write(salary_data)
 
 def process_resume_file(resume_file):
     if resume_file.endswith(".pdf"):
@@ -98,9 +95,9 @@ def process_resume_file(resume_file):
         job_role = predict_job_role(skills)
         sal_data = select_salary_data()
         st.write("The skills that get matched with our keywords:", skills)
-        st.write("Job role prediction: Undetermined")
+        #st.write("Job role prediction: Undetermined")
         display_salary_prediction(sal_data, job_role, experience)
-        st.write(experience, sal_data)
+        #st.write(experience, sal_data)
         st.write(f"He is specialised in {job_role}")
 
 # main code
