@@ -86,6 +86,7 @@ def process_resume_file(resume_file):
         job_role = predict_job_role(skills)
         sal_data = select_salary_data()
         display_salary_prediction(sal_data, job_role, experience)
+        st.write(experience, sal_data)
         st.write(f"He is specialised in {job_role}")
     elif resume_file.endswith(".doc") or resume_file.endswith(".docx"):
         text = docx2txt.process(resume_file)
