@@ -60,8 +60,12 @@ def select_salary_data():
     return sal_data
 
 def get_salary_for_experience(sal_data, job_role, experience):
-    if experience <= 2:
-        yoe = "0-2"
+    if experience < 2:
+        yoe = "0-1"
+    elif 2<experience <= 4:
+        yoe = "2-4"
+    elif 4<experience <=10 :
+        yoe = "5-10"
     elif experience >= 11:
         yoe = "10+"
     else:
