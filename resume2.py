@@ -96,6 +96,7 @@ def process_resume_file(resume_file):
         st.write(f"Years of experience in {resume_file}: {experience}")
         skills, _ = extract_skills(resume_file)
         job_role = predict_job_role(skills)
+        sal_data = select_salary_data()
         st.write("The skills that get matched with our keywords:", skills)
         st.write("Job role prediction: Undetermined")
         display_salary_prediction(sal_data, job_role, experience)
