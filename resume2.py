@@ -49,8 +49,8 @@ def extract_skills(resume_file):
 def predict_job_role(skills):
     if skills['HR'] > skills['DataScientist'] and skills['HR'] > skills['Sales']:
         return "HR"
-    elif skills['DataScientist'] > skills['HR'] and skills['Data Scientist'] > skills['Sales']:
-        return "Data Scientist"
+    elif skills['DataScientist'] > skills['HR'] and skills['DataScientist'] > skills['Sales']:
+        return "DataScientist"
     elif skills['Sales'] > skills['HR'] and skills['Sales'] > skills['DataScientist']:
         return "Sales"
     else:
