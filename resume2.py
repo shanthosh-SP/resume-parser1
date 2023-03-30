@@ -38,7 +38,7 @@ def extract_skills(resume_file):
                      'cluster analysis',
                      'decision trees','power bi']:
 
-            res['Data Scientist'].append(skill)
+            res['DataScientist'].append(skill)
         if skill in ["recruiting", "talent acquisition"]:
             res['HR'].append(skill)
         if skill in ["sales", "marketing"]:
@@ -47,11 +47,11 @@ def extract_skills(resume_file):
     return res, extract_for_YoE['total_exp']
 
 def predict_job_role(skills):
-    if skills['HR'] > skills['Data Scientist'] and skills['HR'] > skills['Sales']:
+    if skills['HR'] > skills['DataScientist'] and skills['HR'] > skills['Sales']:
         return "HR"
-    elif skills['Data Scientist'] > skills['HR'] and skills['Data Scientist'] > skills['Sales']:
+    elif skills['DataScientist'] > skills['HR'] and skills['Data Scientist'] > skills['Sales']:
         return "Data Scientist"
-    elif skills['Sales'] > skills['HR'] and skills['Sales'] > skills['Data Scientist']:
+    elif skills['Sales'] > skills['HR'] and skills['Sales'] > skills['DataScientist']:
         return "Sales"
     else:
         return "Undetermined"
