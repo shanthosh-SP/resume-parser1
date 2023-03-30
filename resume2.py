@@ -29,7 +29,7 @@ def extract_skills(resume_file):
     st.write(Skills_extraction)
     extract_for_YoE = resumeparse.read_file(resume_file)
     st.write(extract_for_YoE)
-    if Skills_extraction['name'] is null:
+    if Skills_extraction['name']==null:
         images = convert_from_path(resume_file)
         # Process each image and extract text
         for i, image in enumerate(images):
