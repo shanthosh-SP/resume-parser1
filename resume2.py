@@ -1,8 +1,24 @@
+import streamlit as st
 import os
 import pandas as pd
-import streamlit as st
+import re
+import nltk
+import spacy
+import en_core_web_sm
+import docx
+import requests
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('universal_tagset')
+nltk.download('maxent_ne_chunker')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('brown')
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
+import docx2txt
+
 
 def select_file(folder_path='Resumes'):
     filenames = os.listdir(folder_path)
