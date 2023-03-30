@@ -30,9 +30,7 @@ def extract_skills(resume_file):
     extract_for_YoE = resumeparse.read_file(resume_file)
     st.write(extract_for_YoE)
     if Skills_extraction['skills'] is None:
-        if Skills_extraction is None:
         images = convert_from_path(resume_file)
-
         # Process each image and extract text
         for i, image in enumerate(images):
             # Convert the image to grayscale
