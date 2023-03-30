@@ -29,7 +29,7 @@ def extract_skills(resume_file):
     extract_for_YoE = resumeparse.read_file(resume_file)
     Skills_extracted = Skills_extraction['skills']
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
-    res = {'Data Scientist': [], 'HR': [], 'Sales': []}
+    res = {'DataScientist': [], 'HR': [], 'Sales': []}
     for skill in Skills_extracted:
         if skill in ['machine learning','data mining','predictive modeling', 
                       'statistical analysis', 'data visualization', 'natural language processing', 'big data', 'data warehousing', 'sql', 
@@ -63,9 +63,9 @@ def select_salary_data():
 
 def get_salary_for_experience(sal_data, job_role, experience):
     if experience < 2:
-        yoe = "0-1"
+        yoe = "0-2"
     elif 2<experience <= 4:
-        yoe = "2-4"
+        yoe = "3-4"
     elif 4<experience <=10 :
         yoe = "5-10"
     elif experience >= 11:
