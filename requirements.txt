@@ -1,4 +1,6 @@
 sip>=6.0.1
+setuptools==67.6.1
+wheel==0.40.0
 pkgconfig==1.5.5
 python-docx==0.8.10
 docx==0.2.4
