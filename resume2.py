@@ -70,6 +70,7 @@ def get_salary_for_experience(sal_data, job_role, experience):
         yoe = "10+"
     else:
         yoe = str(experience) + "-" + str(experience + 1)
+    st.write(sal_data.loc[(sal_data['Job Role'] == job_role) & (sal_data['YoE'] == yoe)])
     return sal_data.loc[(sal_data['Job Role'] == job_role) & (sal_data['YoE'] == yoe)]
 
 def display_salary_prediction(sal_data, job_role, experience):
