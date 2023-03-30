@@ -27,6 +27,11 @@ def select_resume_file(folder_path='Resumes'):
 def extract_skills(resume_file):
     Skills_extraction = ResumeParser(resume_file).get_extracted_data()
     extract_for_YoE = resumeparse.read_file(resume_file)
+    if Skills_extraction is None:
+        image = cv2.imread('resume.pdf', 0)
+        resume_file = pytesseract.image_to_string(image)
+        Skills_extraction = ResumeParser(resume_file).get_extracted_data()
+        extract_for_YoE = resumeparse.read_file(resume_file)
     Skills_extracted = Skills_extraction['skills']
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
     res = {'DataScientist': [], 'HR': [], 'Sales': []}
@@ -39,9 +44,9 @@ def extract_skills(resume_file):
                      'decision trees','power bi']:
 
             res['DataScientist'].append(skill)
-        if skill in ["recruiting", "talent acquisition"]:
+        if skill in ['ats','applicant tracking systems','job postings', 'sourcing','source' ,'interviewing skills', 'hiring process', 'job descriptions', 'talent acquisition', 'diversity and inclusion', 'background checks', 'onboarding','hr consulting' ,'recruiting','recruiter','shortlisting','interviewing','end to end recruitment','deadline','reporting','hire','walk-in drives','phone interviewing',' candidate management systems','decisionmaking','management','psychology','monitoring''cms','screening resumes','lateral']:
             res['HR'].append(skill)
-        if skill in ["sales", "marketing"]:
+        if skill in ['sales', 'account management', 'client relationship management', 'sales forecasting', 'sales strategy', 'sales negotiations', 'pipeline management', 'territory management', 'customer acquisition', 'sales performance', 'sales reporting','website sales','cilents','metrics','inside sales','strategic content development','presales executives','cold calling','executive',' marketing','business development','crm','market research', 'website sales', 'inside sales','negotiations','customer service']:
             res['Sales'].append(skill)
     return res, extract_for_YoE['total_exp']
 
