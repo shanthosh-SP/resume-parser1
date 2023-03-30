@@ -31,7 +31,13 @@ def extract_skills(resume_file):
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
     res = {'Data Scientist': [], 'HR': [], 'Sales': []}
     for skill in Skills_extracted:
-        if skill in ["machine learning"]:
+        if skill in ['machine learning','data mining','predictive modeling', 
+                      'statistical analysis', 'data visualization', 'natural language processing', 'big data', 'data warehousing', 'sql', 
+                      'python/r programming', 'deep learning', 'artificial intelligence', 'data analytics', 'a/b testing', 'feature engineering', 
+                      'etl processes', 'time series analysis', 'regression analysis',
+                     'cluster analysis',
+                     'decision trees','power bi']:
+
             res['Data Scientist'].append(skill)
         if skill in ["recruiting", "talent acquisition"]:
             res['HR'].append(skill)
