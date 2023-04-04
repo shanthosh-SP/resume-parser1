@@ -40,15 +40,16 @@ def select_resume_file(folder_path='Resumes'):
             temp_file.write(uploaded_file.read())
             selected_filename = temp_file.name
             return selected_filename
+            st.write("Running Please wait")
     else:
         st.warning("Please upload a resume file")
 
 def extract_skills(resume_file):
+    st.write("Running Please wait")
     Skills_extraction = ResumeParser(resume_file).get_extracted_data()
     #st.write(Skills_extraction)
     extract_for_YoE = resumeparse.read_file(resume_file)
     #st.write(extract_for_YoE)
-
     Skills_extracted = Skills_extraction['skills']
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
     res = {'DataScientist': [], 'HR': [], 'Sales': []}
