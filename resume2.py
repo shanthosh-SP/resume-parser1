@@ -1,33 +1,53 @@
+import nltk
+# nltk.download("stopwords")
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('universal_tagset')
+# nltk.download('maxent_ne_chunker')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('brown')
 import streamlit as st
 import os
 import pandas as pd
 import re
-import nltk
+import tempfile
 import spacy
 import en_core_web_sm
 import docx
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('universal_tagset')
-nltk.download('maxent_ne_chunker')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('brown')
+from PIL import Image
 from resume_parser import resumeparse
 from pyresparser import ResumeParser
 import docx2txt
+img_path = "test.png"
+img_size = (800, 800)
+
+# Create two columns using beta_columns
+col1, col2 = st.columns([1, 1])
+
+# Add image to the left column
+with col1:
+    image = Image.open(img_path).resize(img_size)
+    st.image(image)
+
+#col1.image("test.png", use_column_width=True)
 
 def select_resume_file(folder_path='Resumes'):
-    filenames = os.listdir(folder_path)
-    selected_filename = st.selectbox('Select a resume file', filenames)
-    return os.path.join(folder_path, selected_filename)
+    uploaded_file = st.file_uploader("Upload a resume file", type=["pdf", "docx", "doc"])
+    if uploaded_file is not None:
+        # Save the uploaded file to a temporary directory
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            temp_file.write(uploaded_file.read())
+            selected_filename = temp_file.name
+            return selected_filename
+    else:
+        st.warning("Please upload a resume file")
 
 def extract_skills(resume_file):
     Skills_extraction = ResumeParser(resume_file).get_extracted_data()
-    st.write(Skills_extraction)
+    #st.write(Skills_extraction)
     extract_for_YoE = resumeparse.read_file(resume_file)
-    st.write(extract_for_YoE)
+    #st.write(extract_for_YoE)
 
     Skills_extracted = Skills_extraction['skills']
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
@@ -108,4 +128,3 @@ def process_resume_file(resume_file):
 resume_file = select_resume_file()
 if st.button("Process"):
     process_resume_file(resume_file)
-
