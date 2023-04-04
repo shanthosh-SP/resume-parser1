@@ -6,8 +6,6 @@ import nltk
 import spacy
 import en_core_web_sm
 import docx
-import pytesseract
-from pdf2image import convert_from_path
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -30,16 +28,6 @@ def extract_skills(resume_file):
     st.write(Skills_extraction)
     extract_for_YoE = resumeparse.read_file(resume_file)
     st.write(extract_for_YoE)
-    if Skills_extraction['name'] is None:
-        images = convert_from_path(resume_file)
-
-        # Process each image and extract text
-        for i, image in enumerate(images):
-            # Convert the image to grayscale
-            image = image.convert('L')
-
-            # Use pytesseract to extract text from the image
-            resume_file = pytesseract.image_to_string(image)
 
     Skills_extracted = Skills_extraction['skills']
     Skills_extracted = [x.lower().strip() for x in Skills_extracted]
